@@ -1,0 +1,743 @@
+%% Analysis results:
+{  analysis_options,
+ [{callers, true},
+  {sort, acc},
+  {totals, false},
+  {details, true}]}.
+
+%                                               CNT       ACC       OWN        
+[{ totals,                                      667, 3658.378,    3.243}].  %%%
+
+
+%                                               CNT       ACC       OWN        
+[{ "<0.166.0>",                                 251,undefined,    1.367},    %%
+ { spawned_by, "<0.164.0>"},
+ { spawned_as, {bitcoin_new,gen_sha256_hash,[]}},
+ { initial_calls, [{bitcoin_new,gen_sha256_hash,0},{crypto,hash,2}]}].
+
+{[{undefined,                                     1,    1.463,    0.096},      
+  {{bitcoin_new,gen_sha256_hash,0},               1,    0.000,    0.001}],     
+ { {bitcoin_new,gen_sha256_hash,0},               2,    1.463,    0.097},     %
+ [{{io_lib,format,2},                             1,    1.261,    0.002},      
+  {suspend,                                       2,    0.096,    0.000},      
+  {{crypto,hash,2},                               1,    0.008,    0.003},      
+  {{binary,decode_unsigned,1},                    1,    0.001,    0.001},      
+  {{bitcoin_new,gen_sha256_hash,0},               1,    0.000,    0.001}]}.    
+
+{[{{bitcoin_new,gen_sha256_hash,0},               1,    1.261,    0.002}],     
+ { {io_lib,format,2},                             1,    1.261,    0.002},     %
+ [{{io_lib_format,fwrite,2},                      1,    1.259,    0.002}]}.    
+
+{[{{io_lib,format,2},                             1,    1.259,    0.002}],     
+ { {io_lib_format,fwrite,2},                      1,    1.259,    0.002},     %
+ [{{io_lib_format,build,1},                       1,    1.148,    0.001},      
+  {{io_lib_format,scan,2},                        1,    0.109,    0.001}]}.    
+
+{[{{io_lib_format,fwrite,2},                      1,    1.148,    0.001}],     
+ { {io_lib_format,build,1},                       1,    1.148,    0.001},     %
+ [{{io_lib_format,build,2},                       1,    1.147,    0.004}]}.    
+
+{[{{io_lib_format,build,1},                       1,    1.147,    0.004}],     
+ { {io_lib_format,build,2},                       1,    1.147,    0.004},     %
+ [{{io_lib_format,build_small,1},                 1,    0.936,    0.005},      
+  {{io_lib_format,count_small,1},                 1,    0.204,    0.001},      
+  {{io_lib_format,get_option,3},                  1,    0.003,    0.002}]}.    
+
+{[{{io_lib_format,build,2},                       1,    0.936,    0.005},      
+  {{io_lib_format,build_small,1},                 1,    0.000,    0.001}],     
+ { {io_lib_format,build_small,1},                 2,    0.936,    0.006},     %
+ [{{io_lib_format,control_small,7},               1,    0.521,    0.002},      
+  {{lists,flatten,1},                             1,    0.408,    0.001},      
+  {{erlang,'++',2},                               1,    0.001,    0.001},      
+  {{io_lib_format,build_small,1},                 1,    0.000,    0.001}]}.    
+
+{[{{io_lib_format,build_small,1},                 1,    0.521,    0.002}],     
+ { {io_lib_format,control_small,7},               1,    0.521,    0.002},     %
+ [{{io_lib_format,unprefixed_integer,6},          1,    0.518,    0.003},      
+  {{io_lib_format,base,1},                        1,    0.001,    0.001}]}.    
+
+{[{{io_lib_format,control_small,7},               1,    0.518,    0.003}],     
+ { {io_lib_format,unprefixed_integer,6},          1,    0.518,    0.003},     %
+ [{{io_lib_format,cond_lowercase,2},              1,    0.424,    0.001},      
+  {{erlang,integer_to_list,2},                    1,    0.081,    0.002},      
+  {{io_lib_format,term,5},                        1,    0.010,    0.004}]}.    
+
+{[{{io_lib_format,unprefixed_integer,6},          1,    0.424,    0.001}],     
+ { {io_lib_format,cond_lowercase,2},              1,    0.424,    0.001},     %
+ [{{io_lib_format,lowercase,1},                   1,    0.423,    0.033}]}.    
+
+{[{{io_lib_format,cond_lowercase,2},              1,    0.423,    0.033},      
+  {{io_lib_format,lowercase,1},                  64,    0.000,    0.389}],     
+ { {io_lib_format,lowercase,1},                  65,    0.423,    0.422},     %
+ [{garbage_collect,                               1,    0.001,    0.001},      
+  {{io_lib_format,lowercase,1},                  64,    0.000,    0.389}]}.    
+
+{[{{io_lib_format,build_small,1},                 1,    0.408,    0.001}],     
+ { {lists,flatten,1},                             1,    0.408,    0.001},     %
+ [{{lists,do_flatten,2},                          1,    0.407,    0.091}]}.    
+
+{[{{lists,flatten,1},                             1,    0.407,    0.091},      
+  {{lists,do_flatten,2},                         64,    0.000,    0.245}],     
+ { {lists,do_flatten,2},                         65,    0.407,    0.336},     %
+ [{garbage_collect,                               1,    0.071,    0.071},      
+  {{lists,do_flatten,2},                         64,    0.000,    0.245}]}.    
+
+{[{{erlang,integer_to_list,2},                    1,    0.079,    0.079},      
+  {{lists,do_flatten,2},                          1,    0.071,    0.071},      
+  {{io_lib_format,count_small,2},                 1,    0.064,    0.064},      
+  {{io_lib_format,pad_char,2},                    2,    0.002,    0.002},      
+  {{io_lib_format,lowercase,1},                   1,    0.001,    0.001}],     
+ { garbage_collect,                               6,    0.217,    0.217},     %
+ [ ]}.
+
+{[{{io_lib_format,build,2},                       1,    0.204,    0.001}],     
+ { {io_lib_format,count_small,1},                 1,    0.204,    0.001},     %
+ [{{io_lib_format,count_small,2},                 1,    0.203,    0.001}]}.    
+
+{[{{io_lib_format,count_small,1},                 1,    0.203,    0.001},      
+  {{io_lib_format,count_small,2},                64,    0.000,    0.138}],     
+ { {io_lib_format,count_small,2},                65,    0.203,    0.139},     %
+ [{garbage_collect,                               1,    0.064,    0.064},      
+  {{io_lib_format,count_small,2},                64,    0.000,    0.138}]}.    
+
+{[{{io_lib_format,fwrite,2},                      1,    0.109,    0.001}],     
+ { {io_lib_format,scan,2},                        1,    0.109,    0.001},     %
+ [{{io_lib_format,collect,2},                     1,    0.108,    0.003}]}.    
+
+{[{{io_lib_format,scan,2},                        1,    0.108,    0.003},      
+  {{io_lib_format,collect,2},                     1,    0.000,    0.001}],     
+ { {io_lib_format,collect,2},                     2,    0.108,    0.004},     %
+ [{{io_lib_format,collect_cseq,2},                1,    0.104,    0.006},      
+  {{io_lib_format,collect,2},                     1,    0.000,    0.001}]}.    
+
+{[{{io_lib_format,collect,2},                     1,    0.104,    0.006}],     
+ { {io_lib_format,collect_cseq,2},                1,    0.104,    0.006},     %
+ [{{io_lib_format,pad_char,2},                    1,    0.084,    0.082},      
+  {{io_lib_format,field_width,2},                 1,    0.007,    0.002},      
+  {{io_lib_format,precision,2},                   1,    0.005,    0.001},      
+  {{io_lib_format,modifiers,2},                   1,    0.001,    0.001},      
+  {{io_lib_format,collect_cc,2},                  1,    0.001,    0.001}]}.    
+
+{[{{bitcoin_new,gen_sha256_hash,0},               2,    0.096,    0.000}],     
+ { suspend,                                       2,    0.096,    0.000},     %
+ [ ]}.
+
+{[{{io_lib_format,collect_cseq,2},                1,    0.084,    0.082}],     
+ { {io_lib_format,pad_char,2},                    1,    0.084,    0.082},     %
+ [{garbage_collect,                               2,    0.002,    0.002}]}.    
+
+{[{{io_lib_format,unprefixed_integer,6},          1,    0.081,    0.002}],     
+ { {erlang,integer_to_list,2},                    1,    0.081,    0.002},     %
+ [{garbage_collect,                               1,    0.079,    0.079}]}.    
+
+{[{{io_lib_format,unprefixed_integer,6},          1,    0.010,    0.004}],     
+ { {io_lib_format,term,5},                        1,    0.010,    0.004},     %
+ [{{io_lib,chars_length,1},                       1,    0.003,    0.002},      
+  {{io_lib_format,chars,2},                       1,    0.001,    0.001},      
+  {{io_lib_format,adjust,3},                      1,    0.001,    0.001},      
+  {{erlang,min,2},                                1,    0.001,    0.001}]}.    
+
+{[{{io_lib_format,precision,2},                   1,    0.004,    0.001},      
+  {{io_lib_format,field_width,2},                 1,    0.004,    0.001}],     
+ { {io_lib_format,field_value,2},                 2,    0.008,    0.002},     %
+ [{{io_lib_format,field_value,3},                 2,    0.006,    0.002}]}.    
+
+{[{{bitcoin_new,gen_sha256_hash,0},               1,    0.008,    0.003}],     
+ { {crypto,hash,2},                               1,    0.008,    0.003},     %
+ [{{crypto,hash,4},                               1,    0.003,    0.002},      
+  {{erlang,iolist_to_binary,1},                   1,    0.001,    0.001},      
+  {{crypto,max_bytes,0},                          1,    0.001,    0.001}]}.    
+
+{[{{io_lib_format,collect_cseq,2},                1,    0.007,    0.002}],     
+ { {io_lib_format,field_width,2},                 1,    0.007,    0.002},     %
+ [{{io_lib_format,field_value,2},                 1,    0.004,    0.001},      
+  {{io_lib_format,field_width,3},                 1,    0.001,    0.001}]}.    
+
+{[{{io_lib_format,field_value,2},                 2,    0.006,    0.002},      
+  {{io_lib_format,field_value,3},                 4,    0.000,    0.004}],     
+ { {io_lib_format,field_value,3},                 6,    0.006,    0.006},     %
+ [{{io_lib_format,field_value,3},                 4,    0.000,    0.004}]}.    
+
+{[{{io_lib_format,collect_cseq,2},                1,    0.005,    0.001}],     
+ { {io_lib_format,precision,2},                   1,    0.005,    0.001},     %
+ [{{io_lib_format,field_value,2},                 1,    0.004,    0.001}]}.    
+
+{[{{io_lib_format,build,2},                       1,    0.003,    0.002}],     
+ { {io_lib_format,get_option,3},                  1,    0.003,    0.002},     %
+ [{{lists,keyfind,3},                             1,    0.001,    0.001}]}.    
+
+{[{{io_lib_format,term,5},                        1,    0.003,    0.002}],     
+ { {io_lib,chars_length,1},                       1,    0.003,    0.002},     %
+ [{{erlang,iolist_size,1},                        1,    0.001,    0.001}]}.    
+
+{[{{crypto,hash,2},                               1,    0.003,    0.002}],     
+ { {crypto,hash,4},                               1,    0.003,    0.002},     %
+ [{{crypto,hash_nif,2},                           1,    0.001,    0.001}]}.    
+
+{[{{io_lib_format,get_option,3},                  1,    0.001,    0.001}],     
+ { {lists,keyfind,3},                             1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib_format,collect_cseq,2},                1,    0.001,    0.001}],     
+ { {io_lib_format,modifiers,2},                   1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib_format,field_width,2},                 1,    0.001,    0.001}],     
+ { {io_lib_format,field_width,3},                 1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib_format,collect_cseq,2},                1,    0.001,    0.001}],     
+ { {io_lib_format,collect_cc,2},                  1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib_format,term,5},                        1,    0.001,    0.001}],     
+ { {io_lib_format,chars,2},                       1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib_format,control_small,7},               1,    0.001,    0.001}],     
+ { {io_lib_format,base,1},                        1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib_format,term,5},                        1,    0.001,    0.001}],     
+ { {io_lib_format,adjust,3},                      1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib_format,term,5},                        1,    0.001,    0.001}],     
+ { {erlang,min,2},                                1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{crypto,hash,2},                               1,    0.001,    0.001}],     
+ { {erlang,iolist_to_binary,1},                   1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib,chars_length,1},                       1,    0.001,    0.001}],     
+ { {erlang,iolist_size,1},                        1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io_lib_format,build_small,1},                 1,    0.001,    0.001}],     
+ { {erlang,'++',2},                               1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{crypto,hash,2},                               1,    0.001,    0.001}],     
+ { {crypto,max_bytes,0},                          1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{crypto,hash,4},                               1,    0.001,    0.001}],     
+ { {crypto,hash_nif,2},                           1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{bitcoin_new,gen_sha256_hash,0},               1,    0.001,    0.001}],     
+ { {binary,decode_unsigned,1},                    1,    0.001,    0.001},     %
+ [ ]}.
+
+{[ ],
+ { undefined,                                     0,    0.000,    0.000},     %
+ [{{bitcoin_new,gen_sha256_hash,0},               1,    1.463,    0.096}]}.    
+
+
+%                                               CNT       ACC       OWN        
+[{ "<0.165.0>",                                 314,undefined,    1.123},    %%
+ { spawned_by, "<0.164.0>"},
+ { spawned_as, {bitcoin_new,gen_randm_string,[]}},
+ { initial_calls, [{bitcoin_new,gen_randm_string,0},{lists,seq,2}]}].
+
+{[{undefined,                                     1,    2.593,    0.099},      
+  {{bitcoin_new,gen_randm_string,0},              1,    0.000,    0.001}],     
+ { {bitcoin_new,gen_randm_string,0},              2,    2.593,    0.100},     %
+ [{suspend,                                       2,    1.470,    0.000},      
+  {{lists,foldl,3},                               1,    0.954,    0.002},      
+  {{string,concat,2},                             1,    0.064,    0.063},      
+  {{lists,seq,2},                                 1,    0.005,    0.001},      
+  {{bitcoin_new,gen_randm_string,0},              1,    0.000,    0.001}]}.    
+
+{[{{bitcoin_new,gen_randm_string,0},              2,    1.470,    0.000}],     
+ { suspend,                                       2,    1.470,    0.000},     %
+ [ ]}.
+
+{[{{bitcoin_new,gen_randm_string,0},              1,    0.954,    0.002}],     
+ { {lists,foldl,3},                               1,    0.954,    0.002},     %
+ [{{lists,foldl_1,3},                             1,    0.725,    0.002},      
+  {{bitcoin_new,'-gen_randm_string/0-fun-0-',2},   1,    0.227,    0.003}]}.    
+
+{[{{lists,foldl_1,3},                             9,    0.592,    0.027},      
+  {{lists,foldl,3},                               1,    0.227,    0.003}],     
+ { {bitcoin_new,'-gen_randm_string/0-fun-0-',2},  10,    0.819,    0.030},     %
+ [{{lists,nth,2},                                10,    0.457,    0.133},      
+  {{rand,uniform,1},                             10,    0.332,    0.040}]}.    
+
+{[{{lists,foldl,3},                               1,    0.725,    0.002},      
+  {{lists,foldl_1,3},                             9,    0.000,    0.131}],     
+ { {lists,foldl_1,3},                            10,    0.725,    0.133},     %
+ [{{bitcoin_new,'-gen_randm_string/0-fun-0-',2},   9,    0.592,    0.027},      
+  {{lists,foldl_1,3},                             9,    0.000,    0.131}]}.    
+
+{[{{bitcoin_new,'-gen_randm_string/0-fun-0-',2},  10,    0.457,    0.133},      
+  {{lists,nth,2},                               191,    0.000,    0.324}],     
+ { {lists,nth,2},                               201,    0.457,    0.457},     %
+ [{{lists,nth,2},                               191,    0.000,    0.324}]}.    
+
+{[{{bitcoin_new,'-gen_randm_string/0-fun-0-',2},  10,    0.332,    0.040}],     
+ { {rand,uniform,1},                             10,    0.332,    0.040},     %
+ [{{rand,seed_get,0},                            10,    0.118,    0.010},      
+  {{rand,uniform_s,2},                           10,    0.088,    0.010},      
+  {{rand,seed_put,1},                            10,    0.086,    0.076}]}.    
+
+{[{{rand,uniform,1},                             10,    0.118,    0.010}],     
+ { {rand,seed_get,0},                            10,    0.118,    0.010},     %
+ [{{rand,seed,1},                                 1,    0.108,    0.002}]}.    
+
+{[{{rand,seed_get,0},                             1,    0.108,    0.002}],     
+ { {rand,seed,1},                                 1,    0.108,    0.002},     %
+ [{{rand,seed_s,1},                               1,    0.103,    0.002},      
+  {{rand,seed_put,1},                             1,    0.003,    0.002}]}.    
+
+{[{{rand,seed,1},                                 1,    0.103,    0.002}],     
+ { {rand,seed_s,1},                               1,    0.103,    0.002},     %
+ [{{rand,seed_s,2},                               1,    0.094,    0.003},      
+  {{rand,default_seed,0},                         1,    0.007,    0.004}]}.    
+
+{[{{rand,seed_s,1},                               1,    0.094,    0.003}],     
+ { {rand,seed_s,2},                               1,    0.094,    0.003},     %
+ [{{rand,exsss_seed,1},                           1,    0.090,    0.004},      
+  {{rand,mk_alg,1},                               1,    0.001,    0.001}]}.    
+
+{[{{rand,seed_s,2},                               1,    0.090,    0.004}],     
+ { {rand,exsss_seed,1},                           1,    0.090,    0.004},     %
+ [{{rand,seed58,1},                               3,    0.086,    0.081}]}.    
+
+{[{{rand,uniform,1},                             10,    0.086,    0.076},      
+  {{rand,seed,1},                                 1,    0.003,    0.002}],     
+ { {rand,seed_put,1},                            11,    0.089,    0.078},     %
+ [{{erlang,put,2},                               11,    0.011,    0.011}]}.    
+
+{[{{rand,uniform,1},                             10,    0.088,    0.010}],     
+ { {rand,uniform_s,2},                           10,    0.088,    0.010},     %
+ [{{rand,exsss_uniform,2},                       10,    0.078,    0.012}]}.    
+
+{[{{rand,exsss_seed,1},                           3,    0.086,    0.081}],     
+ { {rand,seed58,1},                               3,    0.086,    0.081},     %
+ [{{rand,splitmix64_next,1},                      3,    0.003,    0.003},      
+  {garbage_collect,                               2,    0.002,    0.002}]}.    
+
+{[{{rand,uniform_s,2},                           10,    0.078,    0.012}],     
+ { {rand,exsss_uniform,2},                       10,    0.078,    0.012},     %
+ [{garbage_collect,                               2,    0.066,    0.066}]}.    
+
+{[{{rand,exsss_uniform,2},                        2,    0.066,    0.066},      
+  {{rand,seed58,1},                               2,    0.002,    0.002}],     
+ { garbage_collect,                               4,    0.068,    0.068},     %
+ [ ]}.
+
+{[{{bitcoin_new,gen_randm_string,0},              1,    0.064,    0.063}],     
+ { {string,concat,2},                             1,    0.064,    0.063},     %
+ [{{erlang,'++',2},                               1,    0.001,    0.001}]}.    
+
+{[{{rand,seed_put,1},                            11,    0.011,    0.011}],     
+ { {erlang,put,2},                               11,    0.011,    0.011},     %
+ [ ]}.
+
+{[{{rand,seed_s,1},                               1,    0.007,    0.004}],     
+ { {rand,default_seed,0},                         1,    0.007,    0.004},     %
+ [{{erlang,unique_integer,0},                     1,    0.001,    0.001},      
+  {{erlang,system_time,0},                        1,    0.001,    0.001},      
+  {{erlang,phash2,1},                             1,    0.001,    0.001}]}.    
+
+{[{{bitcoin_new,gen_randm_string,0},              1,    0.005,    0.001}],     
+ { {lists,seq,2},                                 1,    0.005,    0.001},     %
+ [{{lists,seq_loop,3},                            1,    0.004,    0.001}]}.    
+
+{[{{lists,seq,2},                                 1,    0.004,    0.001},      
+  {{lists,seq_loop,3},                            3,    0.000,    0.003}],     
+ { {lists,seq_loop,3},                            4,    0.004,    0.004},     %
+ [{{lists,seq_loop,3},                            3,    0.000,    0.003}]}.    
+
+{[{{rand,seed58,1},                               3,    0.003,    0.003}],     
+ { {rand,splitmix64_next,1},                      3,    0.003,    0.003},     %
+ [ ]}.
+
+{[{{rand,seed_s,2},                               1,    0.001,    0.001}],     
+ { {rand,mk_alg,1},                               1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{rand,default_seed,0},                         1,    0.001,    0.001}],     
+ { {erlang,unique_integer,0},                     1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{rand,default_seed,0},                         1,    0.001,    0.001}],     
+ { {erlang,system_time,0},                        1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{rand,default_seed,0},                         1,    0.001,    0.001}],     
+ { {erlang,phash2,1},                             1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{string,concat,2},                             1,    0.001,    0.001}],     
+ { {erlang,'++',2},                               1,    0.001,    0.001},     %
+ [ ]}.
+
+{[ ],
+ { undefined,                                     0,    0.000,    0.000},     %
+ [{{bitcoin_new,gen_randm_string,0},              1,    2.593,    0.099}]}.    
+
+
+%                                               CNT       ACC       OWN        
+[{ "<0.79.0>",                                   96,undefined,    0.742}].   %%
+
+{[{undefined,                                     0, 3658.378,    0.002}],     
+ { {fprof,apply_start_stop,4},                    0, 3658.378,    0.002},     %
+ [{{bitcoin_new,run,0},                           1, 3655.589,    0.089},      
+  {suspend,                                       1,    2.787,    0.000}]}.    
+
+{[{{io,execute_request,3},                        1, 3654.849,    0.000},      
+  {{fprof,apply_start_stop,4},                    1,    2.787,    0.000}],     
+ { suspend,                                       2, 3657.636,    0.000},     %
+ [ ]}.
+
+{[{{fprof,apply_start_stop,4},                    1, 3655.589,    0.089}],     
+ { {bitcoin_new,run,0},                           1, 3655.589,    0.089},     %
+ [{{io,read,1},                                   1, 3655.388,    0.002},      
+  {{lists,concat,1},                              1,    0.104,    0.001},      
+  {{lists,duplicate,2},                           1,    0.005,    0.001},      
+  {{erlang,spawn,3},                              1,    0.003,    0.003}]}.    
+
+{[{{bitcoin_new,run,0},                           1, 3655.388,    0.002}],     
+ { {io,read,1},                                   1, 3655.388,    0.002},     %
+ [{{io,read,2},                                   1, 3655.287,    0.002},      
+  {{io,default_input,0},                          1,    0.099,    0.098}]}.    
+
+{[{{io,read,1},                                   1, 3655.287,    0.002}],     
+ { {io,read,2},                                   1, 3655.287,    0.002},     %
+ [{{io,request,2},                                1, 3654.862,    0.001},      
+  {{erl_parse,parse_term,1},                      1,    0.423,    0.004}]}.    
+
+{[{{io,read,2},                                   1, 3654.862,    0.001}],     
+ { {io,request,2},                                1, 3654.862,    0.001},     %
+ [{{io,request,3},                                1, 3654.861,    0.002}]}.    
+
+{[{{io,request,2},                                1, 3654.861,    0.002}],     
+ { {io,request,3},                                1, 3654.861,    0.002},     %
+ [{{io,execute_request,3},                        1, 3654.855,    0.004},      
+  {{io,io_request,2},                             1,    0.004,    0.001}]}.    
+
+{[{{io,request,3},                                1, 3654.855,    0.004}],     
+ { {io,execute_request,3},                        1, 3654.855,    0.004},     %
+ [{suspend,                                       1, 3654.849,    0.000},      
+  {{erlang,monitor,2},                            1,    0.001,    0.001},      
+  {{erlang,demonitor,2},                          1,    0.001,    0.001}]}.    
+
+{[{{io,read,2},                                   1,    0.423,    0.004}],     
+ { {erl_parse,parse_term,1},                      1,    0.423,    0.004},     %
+ [{{erl_parse,parse,1},                           1,    0.416,    0.001},      
+  {{erl_anno,new,1},                              1,    0.002,    0.001},      
+  {{erl_parse,normalise,1},                       1,    0.001,    0.001}]}.    
+
+{[{{erl_parse,parse_term,1},                      1,    0.416,    0.001}],     
+ { {erl_parse,parse,1},                           1,    0.416,    0.001},     %
+ [{{erl_parse,yeccpars0,5},                       1,    0.415,    0.094}]}.    
+
+{[{{erl_parse,parse,1},                           1,    0.415,    0.094}],     
+ { {erl_parse,yeccpars0,5},                       1,    0.415,    0.094},     %
+ [{{erl_parse,yeccpars1,5},                       1,    0.321,    0.001}]}.    
+
+{[{{erl_parse,yeccpars0,5},                       1,    0.321,    0.001}],     
+ { {erl_parse,yeccpars1,5},                       1,    0.321,    0.001},     %
+ [{{erl_parse,yeccpars2,7},                       1,    0.320,    0.001}]}.    
+
+{[{{erl_parse,yeccpars1,5},                       1,    0.320,    0.001},      
+  {{erl_parse,yeccpars1,7},                       6,    0.000,    0.006}],     
+ { {erl_parse,yeccpars2,7},                       7,    0.320,    0.007},     %
+ [{{erl_parse,yeccpars2_0,7},                     1,    0.319,    0.001},      
+  {{erl_parse,yeccpars2_7,7},                     1,    0.316,    0.001},      
+  {{erl_parse,yeccpars2_10,7},                    1,    0.313,    0.001},      
+  {{erl_parse,yeccpars2_24,7},                    1,    0.310,    0.001},      
+  {{erl_parse,yeccpars2_42,7},                    1,    0.216,    0.001},      
+  {{erl_parse,yeccpars2_33,7},                    1,    0.213,    0.001},      
+  {{erl_parse,yeccpars2_517,7},                   1,    0.003,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2,7},                       1,    0.319,    0.001}],     
+ { {erl_parse,yeccpars2_0,7},                     1,    0.319,    0.001},     %
+ [{{erl_parse,yeccpars1,7},                       1,    0.318,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_0,7},                     1,    0.318,    0.001},      
+  {{erl_parse,yeccpars2_86,7},                    1,    0.000,    0.001},      
+  {{erl_parse,yeccpars2_7,7},                     1,    0.000,    0.001},      
+  {{erl_parse,yeccpars2_42,7},                    1,    0.000,    0.001},      
+  {{erl_parse,yeccpars2_3,7},                     1,    0.000,    0.003},      
+  {{erl_parse,yeccpars2_10,7},                    1,    0.000,    0.001}],     
+ { {erl_parse,yeccpars1,7},                       6,    0.318,    0.008},     %
+ [{{erl_parse,yecctoken_end_location,1},          1,    0.094,    0.002},      
+  {{erl_parse,yecc_end,1},                        1,    0.001,    0.001},      
+  {{erl_parse,yeccpars2,7},                       6,    0.000,    0.006}]}.    
+
+{[{{erl_parse,yeccpars2,7},                       1,    0.316,    0.001}],     
+ { {erl_parse,yeccpars2_7,7},                     1,    0.316,    0.001},     %
+ [{{erl_parse,yeccpars1,7},                       1,    0.000,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2,7},                       1,    0.313,    0.001}],     
+ { {erl_parse,yeccpars2_10,7},                    1,    0.313,    0.001},     %
+ [{{erl_parse,yeccpars1,7},                       1,    0.000,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2,7},                       1,    0.310,    0.001}],     
+ { {erl_parse,yeccpars2_24,7},                    1,    0.310,    0.001},     %
+ [{{erl_parse,yeccgoto_pat_argument_list,7},      1,    0.309,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_24,7},                    1,    0.309,    0.001}],     
+ { {erl_parse,yeccgoto_pat_argument_list,7},      1,    0.309,    0.001},     %
+ [{{erl_parse,yeccpars2_8,7},                     1,    0.308,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_pat_argument_list,7},      1,    0.308,    0.001}],     
+ { {erl_parse,yeccpars2_8,7},                     1,    0.308,    0.001},     %
+ [{{erl_parse,yeccgoto_clause_args,7},            1,    0.307,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_8,7},                     1,    0.307,    0.001}],     
+ { {erl_parse,yeccgoto_clause_args,7},            1,    0.307,    0.001},     %
+ [{{erl_parse,yeccpars2_9,7},                     1,    0.306,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_clause_args,7},            1,    0.306,    0.001}],     
+ { {erl_parse,yeccpars2_9,7},                     1,    0.306,    0.001},     %
+ [{{erl_parse,yeccpars2_86,7},                    1,    0.305,    0.087}]}.    
+
+{[{{erl_parse,yeccpars2_9,7},                     1,    0.305,    0.087}],     
+ { {erl_parse,yeccpars2_86,7},                    1,    0.305,    0.087},     %
+ [{{erl_parse,yeccpars1,7},                       1,    0.000,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2,7},                       1,    0.216,    0.001}],     
+ { {erl_parse,yeccpars2_42,7},                    1,    0.216,    0.001},     %
+ [{{erl_parse,yeccpars1,7},                       1,    0.000,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2,7},                       1,    0.213,    0.001}],     
+ { {erl_parse,yeccpars2_33,7},                    1,    0.213,    0.001},     %
+ [{{erl_parse,yeccgoto_atomic,7},                 1,    0.212,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_33,7},                    1,    0.212,    0.001}],     
+ { {erl_parse,yeccgoto_atomic,7},                 1,    0.212,    0.001},     %
+ [{{erl_parse,yeccpars2_57,7},                    1,    0.211,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_atomic,7},                 1,    0.211,    0.001}],     
+ { {erl_parse,yeccpars2_57,7},                    1,    0.211,    0.001},     %
+ [{{erl_parse,yeccgoto_expr_max,7},               1,    0.210,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_57,7},                    1,    0.210,    0.001}],     
+ { {erl_parse,yeccgoto_expr_max,7},               1,    0.210,    0.001},     %
+ [{{erl_parse,yeccpars2_52,7},                    1,    0.209,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_expr_max,7},               1,    0.209,    0.001}],     
+ { {erl_parse,yeccpars2_52,7},                    1,    0.209,    0.001},     %
+ [{{erl_parse,yeccgoto_expr_remote,7},            1,    0.208,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_52,7},                    1,    0.208,    0.001}],     
+ { {erl_parse,yeccgoto_expr_remote,7},            1,    0.208,    0.001},     %
+ [{{erl_parse,yeccpars2_51,7},                    1,    0.207,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_expr_remote,7},            1,    0.207,    0.001}],     
+ { {erl_parse,yeccpars2_51,7},                    1,    0.207,    0.001},     %
+ [{{erl_parse,yeccgoto_expr,7},                   1,    0.206,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_51,7},                    1,    0.206,    0.001}],     
+ { {erl_parse,yeccgoto_expr,7},                   1,    0.206,    0.001},     %
+ [{{erl_parse,yeccpars2_53,7},                    1,    0.205,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_expr,7},                   1,    0.205,    0.001}],     
+ { {erl_parse,yeccpars2_53,7},                    1,    0.205,    0.001},     %
+ [{{erl_parse,yeccgoto_exprs,7},                  1,    0.204,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_53,7},                    1,    0.204,    0.001}],     
+ { {erl_parse,yeccgoto_exprs,7},                  1,    0.204,    0.001},     %
+ [{{erl_parse,yeccpars2_128,7},                   1,    0.203,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_exprs,7},                  1,    0.203,    0.001}],     
+ { {erl_parse,yeccpars2_128,7},                   1,    0.203,    0.001},     %
+ [{{erl_parse,yeccgoto_clause_body,7},            1,    0.202,    0.086}]}.    
+
+{[{{erl_parse,yeccpars2_128,7},                   1,    0.202,    0.086}],     
+ { {erl_parse,yeccgoto_clause_body,7},            1,    0.202,    0.086},     %
+ [{{erl_parse,yeccpars2_353,7},                   1,    0.116,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_clause_body,7},            1,    0.116,    0.001}],     
+ { {erl_parse,yeccpars2_353,7},                   1,    0.116,    0.001},     %
+ [{{erl_parse,yeccgoto_function_clause,7},        1,    0.115,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_353,7},                   1,    0.115,    0.001}],     
+ { {erl_parse,yeccgoto_function_clause,7},        1,    0.115,    0.001},     %
+ [{{erl_parse,yeccpars2_2,7},                     1,    0.114,    0.001}]}.    
+
+{[{{erl_parse,yeccgoto_function_clause,7},        1,    0.114,    0.001}],     
+ { {erl_parse,yeccpars2_2,7},                     1,    0.114,    0.001},     %
+ [{{erl_parse,yeccgoto_function_clauses,7},       1,    0.113,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_2,7},                     1,    0.113,    0.001}],     
+ { {erl_parse,yeccgoto_function_clauses,7},       1,    0.113,    0.001},     %
+ [{{erl_parse,yeccpars2_1,7},                     1,    0.112,    0.002}]}.    
+
+{[{{erl_parse,yeccgoto_function_clauses,7},       1,    0.112,    0.002}],     
+ { {erl_parse,yeccpars2_1,7},                     1,    0.112,    0.002},     %
+ [{{erl_parse,yeccgoto_function,7},               1,    0.104,    0.001},      
+  {{erl_parse,build_function,1},                  1,    0.006,    0.002}]}.    
+
+{[{{bitcoin_new,run,0},                           1,    0.104,    0.001}],     
+ { {lists,concat,1},                              1,    0.104,    0.001},     %
+ [{{lists,flatmap,2},                             1,    0.103,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_1,7},                     1,    0.104,    0.001}],     
+ { {erl_parse,yeccgoto_function,7},               1,    0.104,    0.001},     %
+ [{{erl_parse,yeccpars2_3,7},                     1,    0.103,    0.001}]}.    
+
+{[{{lists,concat,1},                              1,    0.103,    0.001}],     
+ { {lists,flatmap,2},                             1,    0.103,    0.001},     %
+ [{{lists,flatmap_1,2},                           1,    0.102,    0.091}]}.    
+
+{[{{erl_parse,yeccgoto_function,7},               1,    0.103,    0.001}],     
+ { {erl_parse,yeccpars2_3,7},                     1,    0.103,    0.001},     %
+ [{{erl_parse,yeccpars1,7},                       1,    0.000,    0.003}]}.    
+
+{[{{lists,flatmap,2},                             1,    0.102,    0.091},      
+  {{lists,flatmap_1,2},                           3,    0.000,    0.005}],     
+ { {lists,flatmap_1,2},                           4,    0.102,    0.096},     %
+ [{{lists,thing_to_list,1},                       3,    0.003,    0.003},      
+  {{erlang,'++',2},                               3,    0.003,    0.003},      
+  {{lists,flatmap_1,2},                           3,    0.000,    0.005}]}.    
+
+{[{{io,read,1},                                   1,    0.099,    0.098}],     
+ { {io,default_input,0},                          1,    0.099,    0.098},     %
+ [{{erlang,group_leader,0},                       1,    0.001,    0.001}]}.    
+
+{[{{erl_parse,yeccpars1,7},                       1,    0.094,    0.002}],     
+ { {erl_parse,yecctoken_end_location,1},          1,    0.094,    0.002},     %
+ [{{erl_anno,end_location,1},                     1,    0.088,    0.087},      
+  {{erl_parse,yecctoken_location,1},              1,    0.004,    0.002}]}.    
+
+{[{{erl_parse,yecctoken_end_location,1},          1,    0.088,    0.087}],     
+ { {erl_anno,end_location,1},                     1,    0.088,    0.087},     %
+ [{{erl_anno,text,1},                             1,    0.001,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_1,7},                     1,    0.006,    0.002}],     
+ { {erl_parse,build_function,1},                  1,    0.006,    0.002},     %
+ [{{erl_parse,check_clauses,3},                   1,    0.004,    0.001}]}.    
+
+{[{{bitcoin_new,run,0},                           1,    0.005,    0.001}],     
+ { {lists,duplicate,2},                           1,    0.005,    0.001},     %
+ [{{lists,duplicate,3},                           1,    0.004,    0.001}]}.    
+
+{[{{lists,duplicate,2},                           1,    0.004,    0.001},      
+  {{lists,duplicate,3},                           3,    0.000,    0.003}],     
+ { {lists,duplicate,3},                           4,    0.004,    0.004},     %
+ [{{lists,duplicate,3},                           3,    0.000,    0.003}]}.    
+
+{[{{io,request,3},                                1,    0.004,    0.001}],     
+ { {io,io_request,2},                             1,    0.004,    0.001},     %
+ [{{io,bc_req,3},                                 1,    0.003,    0.002}]}.    
+
+{[{{erl_parse,yecctoken_end_location,1},          1,    0.004,    0.002}],     
+ { {erl_parse,yecctoken_location,1},              1,    0.004,    0.002},     %
+ [{{erl_scan,location,1},                         1,    0.002,    0.001}]}.    
+
+{[{{erl_parse,build_function,1},                  1,    0.004,    0.001}],     
+ { {erl_parse,check_clauses,3},                   1,    0.004,    0.001},     %
+ [{{erl_parse,'-check_clauses/3-lc$^0/1-0-',3},   1,    0.003,    0.002}]}.    
+
+{[{{lists,flatmap_1,2},                           3,    0.003,    0.003}],     
+ { {lists,thing_to_list,1},                       3,    0.003,    0.003},     %
+ [ ]}.
+
+{[{{io,io_request,2},                             1,    0.003,    0.002}],     
+ { {io,bc_req,3},                                 1,    0.003,    0.002},     %
+ [{{net_kernel,dflag_unicode_io,1},               1,    0.001,    0.001}]}.    
+
+{[{{bitcoin_new,run,0},                           1,    0.003,    0.003}],     
+ { {erlang,spawn,3},                              1,    0.003,    0.003},     %
+ [ ]}.
+
+{[{{lists,flatmap_1,2},                           3,    0.003,    0.003}],     
+ { {erlang,'++',2},                               3,    0.003,    0.003},     %
+ [ ]}.
+
+{[{{erl_parse,yeccpars2,7},                       1,    0.003,    0.001}],     
+ { {erl_parse,yeccpars2_517,7},                   1,    0.003,    0.001},     %
+ [{{erl_parse,yeccgoto_form,7},                   1,    0.002,    0.001}]}.    
+
+{[{{erl_parse,check_clauses,3},                   1,    0.003,    0.002},      
+  {{erl_parse,'-check_clauses/3-lc$^0/1-0-',3},   1,    0.000,    0.001}],     
+ { {erl_parse,'-check_clauses/3-lc$^0/1-0-',3},   2,    0.003,    0.003},     %
+ [{{erl_parse,'-check_clauses/3-lc$^0/1-0-',3},   1,    0.000,    0.001}]}.    
+
+{[{{erl_parse,yecctoken_location,1},              1,    0.002,    0.001}],     
+ { {erl_scan,location,1},                         1,    0.002,    0.001},     %
+ [{{erl_anno,location,1},                         1,    0.001,    0.001}]}.    
+
+{[{{erl_parse,yeccpars2_517,7},                   1,    0.002,    0.001}],     
+ { {erl_parse,yeccgoto_form,7},                   1,    0.002,    0.001},     %
+ [{{erl_parse,yeccpars2_4,7},                     1,    0.001,    0.001}]}.    
+
+{[{{erl_parse,parse_term,1},                      1,    0.002,    0.001}],     
+ { {erl_anno,new,1},                              1,    0.002,    0.001},     %
+ [{{erl_anno,new_location,1},                     1,    0.001,    0.001}]}.    
+
+{[{{io,bc_req,3},                                 1,    0.001,    0.001}],     
+ { {net_kernel,dflag_unicode_io,1},               1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io,execute_request,3},                        1,    0.001,    0.001}],     
+ { {erlang,monitor,2},                            1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io,default_input,0},                          1,    0.001,    0.001}],     
+ { {erlang,group_leader,0},                       1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{io,execute_request,3},                        1,    0.001,    0.001}],     
+ { {erlang,demonitor,2},                          1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{erl_parse,yeccgoto_form,7},                   1,    0.001,    0.001}],     
+ { {erl_parse,yeccpars2_4,7},                     1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{erl_parse,yeccpars1,7},                       1,    0.001,    0.001}],     
+ { {erl_parse,yecc_end,1},                        1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{erl_parse,parse_term,1},                      1,    0.001,    0.001}],     
+ { {erl_parse,normalise,1},                       1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{erl_anno,end_location,1},                     1,    0.001,    0.001}],     
+ { {erl_anno,text,1},                             1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{erl_anno,new,1},                              1,    0.001,    0.001}],     
+ { {erl_anno,new_location,1},                     1,    0.001,    0.001},     %
+ [ ]}.
+
+{[{{erl_scan,location,1},                         1,    0.001,    0.001}],     
+ { {erl_anno,location,1},                         1,    0.001,    0.001},     %
+ [ ]}.
+
+{[ ],
+ { undefined,                                     0,    0.000,    0.000},     %
+ [{{fprof,apply_start_stop,4},                    0, 3658.378,    0.002}]}.    
+
+
+%                                               CNT       ACC       OWN        
+[{ "<0.164.0>",                                   6,undefined,    0.011},    %%
+ { spawned_by, "<0.79.0>"},
+ { spawned_as, {bitcoin_new,main,[3,"000"]}},
+ { initial_calls, [{bitcoin_new,main,2},{erlang,spawn,3}]}].
+
+{[{undefined,                                     1,    2.791,    0.005}],     
+ { {bitcoin_new,main,2},                          1,    2.791,    0.005},     %
+ [{suspend,                                       3,    2.780,    0.000},      
+  {{erlang,spawn,3},                              2,    0.006,    0.006}]}.    
+
+{[{{bitcoin_new,main,2},                          3,    2.780,    0.000}],     
+ { suspend,                                       3,    2.780,    0.000},     %
+ [ ]}.
+
+{[{{bitcoin_new,main,2},                          2,    0.006,    0.006}],     
+ { {erlang,spawn,3},                              2,    0.006,    0.006},     %
+ [ ]}.
+
+{[ ],
+ { undefined,                                     0,    0.000,    0.000},     %
+ [{{bitcoin_new,main,2},                          1,    2.791,    0.005}]}.    
+
+
