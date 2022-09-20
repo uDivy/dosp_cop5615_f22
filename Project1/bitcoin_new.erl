@@ -15,25 +15,25 @@ gen_randm_string() ->
 
             UFID = "devangkale",
             Finalstring = string:concat(UFID, Ranstring),
-            Client ! {self(), Finalstring},
-            gen_randm_string()
+            Client ! {self(), Finalstring}
+            % gen_randm_string()
 
-    after ?TIMEOUT ->
-        exit(no_activity)
-    end.
-    % gen_randm_string().
+    % after ?TIMEOUT ->
+    %     exit(no_activity)
+    end,
+    gen_randm_string().
 
 gen_sha256_hash() ->
     receive
         {Client, {FinalRanString, genhash}} ->
             SHA256 = io_lib:format("~64.16.0b", [binary:decode_unsigned(crypto:hash(sha256, FinalRanString))]),
-            Client ! {self(), SHA256},
-        gen_sha256_hash()
+            Client ! {self(), SHA256}
+        % gen_sha256_hash()
 
-    after ?TIMEOUT ->
-        exit(no_activity)
-    end.
-    % gen_sha256_hash().
+    % after ?TIMEOUT ->
+    %     exit(no_activity)
+    end,
+    gen_sha256_hash().
 
 
 main(Value, Leading_Zeroes) ->
