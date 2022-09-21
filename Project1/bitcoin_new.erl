@@ -56,14 +56,14 @@ main(Value, Leading_Zeroes) ->
     Status = string:equal(Check_Zeroes,Leading_Zeroes),
     if 
         Status -> 
-          io:fwrite("The required coin is ~p  ~p~n", [FinalRanString,FinalSHA256]),
+        %   io:fwrite("The required coin is ~p  ~p~n", [FinalRanString,FinalSHA256]),
           {_, Time1} = statistics(runtime),
           {_, Time2} = statistics(wall_clock),
           U1 = Time1,
           U2 = Time2,
           U3 = 0,
         %   U3 = Time1/Time2,
-          io:format("CPU Time : ~p, Real Time: ~p, Ratio = ~p~n",[U1, U2, U3]),
+          io:format("PID: ~p CPU Time : ~p, Real Time: ~p, Ratio = ~p~n",[self(),U1, U2, U3]),
           main(Value, Leading_Zeroes);
         true -> 
             main(Value, Leading_Zeroes)

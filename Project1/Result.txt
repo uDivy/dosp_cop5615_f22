@@ -1,0 +1,228 @@
+The required coin is "divyaupadhyayzq['u[<']v"  "00008ee8513b832bb10dbe2f04e2277b77cdbe8e09ad6e8e289a2e7491383719".
+  METRICS:: [PID: <0.89.0> CPU Time : 1171, Real Time: 7920, Ratio[CPU_TIME/REAL_TIME] = 0.14785353535353535]
+The required coin is "divyaupadhyayohc<q]ikie"  "000081416252b76c0e24b95f8c2d0aa89c018b7f4f4a86fd0cb21ac0e879cca3".
+  METRICS:: [PID: <0.91.0> CPU Time : 485, Real Time: 73, Ratio[CPU_TIME/REAL_TIME] = 6.6438356164383565]
+The required coin is "divyaupadhyayxqadiycr;i"  "00007c5040336164e11d0c39e7cb49ab69f3dcf780417a6ef3841a07b582ddae".
+  METRICS:: [PID: <0.86.0> CPU Time : 922, Real Time: 125, Ratio[CPU_TIME/REAL_TIME] = 7.376]
+The required coin is "divyaupadhyaym[:<]umpte"  "0000ae5a9e18007bc76d4a37ed017884abe9e7fdee73339557480fbce3442709".
+  METRICS:: [PID: <0.88.0> CPU Time : 547, Real Time: 98, Ratio[CPU_TIME/REAL_TIME] = 5.581632653061225]
+The required coin is "divyaupadhyaywd.[pjia}r"  "00002995b16a342ec6d647cbe8d3746e25ad7a771f1e54eb188a64ad8782e5f3".
+  METRICS:: [PID: <0.93.0> CPU Time : 390, Real Time: 65, Ratio[CPU_TIME/REAL_TIME] = 6.0]
+The required coin is "divyaupadhyaywf]{kkjfgx"  "000010f7e1c89537c86fb41254a3afc619544bcce3fcb497144998c63a490d07".
+  METRICS:: [PID: <0.86.0> CPU Time : 1141, Real Time: 162, Ratio[CPU_TIME/REAL_TIME] = 7.04320987654321]
+The required coin is "divyaupadhyay}h<a:{ayvu"  "0000aec3955245775118d5fbb8f506f3b59beba1168d9750fa680699c259ace7".
+  METRICS:: [PID: <0.89.0> CPU Time : 3156, Real Time: 408, Ratio[CPU_TIME/REAL_TIME] = 7.735294117647059]
+The required coin is "divyaupadhyayebt.k:<<y|"  "000059019caad427dad319a7a0a8b5c521a5f279024195db70415ac021a65429".
+  METRICS:: [PID: <0.87.0> CPU Time : 1750, Real Time: 277, Ratio[CPU_TIME/REAL_TIME] = 6.317689530685921]
+The required coin is "divyaupadhyay]f{k>u/yd:"  "000026b3604f3e2f694020761cdbab1cf134aa016be7b9b9a0fe9c8819fdfaa4".
+  METRICS:: [PID: <0.91.0> CPU Time : 109, Real Time: 20, Ratio[CPU_TIME/REAL_TIME] = 5.45]
+The required coin is "divyaupadhyayqnjtsuqlnq"  "0000cadea8f7a382802a752c07606afb066dc4a46db2502099da6f5d8ac1d62d".
+  METRICS:: [PID: <0.89.0> CPU Time : 219, Real Time: 28, Ratio[CPU_TIME/REAL_TIME] = 7.821428571428571]
+The required coin is "divyaupadhyayovedd'>'ae"  "0000aadc3770a77d1fba308da41847e0ca2d17f8e180856bab3af7381c05ed09".
+  METRICS:: [PID: <0.86.0> CPU Time : 313, Real Time: 44, Ratio[CPU_TIME/REAL_TIME] = 7.113636363636363]
+The required coin is "divyaupadhyaybqh.}}<ovs"  "0000bbcee30ba23046ee13b4b4e9e3700a9b48b5a87f1fedd80a84fa62a7a9b6".
+  METRICS:: [PID: <0.86.0> CPU Time : 1625, Real Time: 236, Ratio[CPU_TIME/REAL_TIME] = 6.885593220338983]
+The required coin is "divyaupadhyay'nzc'<sc{s"  "00007eb79962c43857edd8451f498c0a590a17e0efb84ee596d4d3c9e7799140".
+  METRICS:: [PID: <0.91.0> CPU Time : 5547, Real Time: 719, Ratio[CPU_TIME/REAL_TIME] = 7.714881780250348]
+The required coin is "divyaupadhyay<xjaj'lsa;"  "0000ad2d544fc3d508a63faf2a7c03e14fb5cd45d2ed4be7d73a652234d86779".
+  METRICS:: [PID: <0.93.0> CPU Time : 109, Real Time: 21, Ratio[CPU_TIME/REAL_TIME] = 5.190476190476191]
+The required coin is "divyaupadhyayd.c?tk{te}"  "00004736442b36a9419a4ed371c912c8f2ba85284ca7763215c6c7e6d45ebd58".
+  METRICS:: [PID: <0.86.0> CPU Time : 750, Real Time: 129, Ratio[CPU_TIME/REAL_TIME] = 5.813953488372093]
+The required coin is "divyaupadhyay<ijylhjdli"  "0000a6e7907a824d185146f53913e8a24082d1e5ea68316b74d5b53dd9b0d162".
+  METRICS:: [PID: <0.89.0> CPU Time : 5094, Real Time: 704, Ratio[CPU_TIME/REAL_TIME] = 7.235795454545454]
+The required coin is "divyaupadhyaymye,/{vqy?"  "0000defdfea3718500e7759d0262bc3983957a8942a3368408064d39c4f31d0d".
+  METRICS:: [PID: <0.87.0> CPU Time : 2843, Real Time: 434, Ratio[CPU_TIME/REAL_TIME] = 6.550691244239632]
+The required coin is "divyaupadhyay/c<m[u/'ng"  "0000421bbe968ec7dfdeb942752ed6c6c3e7d2de0772c530c6e11c8808b3586a".
+  METRICS:: [PID: <0.91.0> CPU Time : 3532, Real Time: 458, Ratio[CPU_TIME/REAL_TIME] = 7.711790393013101]
+The required coin is "divyaupadhyay;[slftyiw;"  "0000546b5424b430f995162ba3b158e033df0935cf3db0faa377423d0b748e6f".
+  METRICS:: [PID: <0.91.0> CPU Time : 453, Real Time: 56, Ratio[CPU_TIME/REAL_TIME] = 8.089285714285714]
+The required coin is "divyaupadhyay'/},u/q;p|"  "0000c18fdc83b6cb1bd3b8c8d92be48331f31cff5c855d03a83b23b657c831d4".
+  METRICS:: [PID: <0.93.0> CPU Time : 828, Real Time: 124, Ratio[CPU_TIME/REAL_TIME] = 6.67741935483871]
+The required coin is "divyaupadhyay'?kraaut?a"  "000022204c4ddcece234e2e4158da285ed71942a8a7b8cc5c4b9421226b4a34b".
+  METRICS:: [PID: <0.91.0> CPU Time : 250, Real Time: 34, Ratio[CPU_TIME/REAL_TIME] = 7.352941176470588]
+The required coin is "divyaupadhyaygdg],'e|j'"  "00008f809affe4da94d849e168b91a66b9efa1eaed8e671d547a7d4302c16967".
+  METRICS:: [PID: <0.92.0> CPU Time : 594, Real Time: 67, Ratio[CPU_TIME/REAL_TIME] = 8.865671641791044]
+The required coin is "divyaupadhyay[>kg>m,u|d"  "000047d1f65b58d7664ff640e9dca94740bda97665a4cd303b4a1655b0ad82db".
+  METRICS:: [PID: <0.86.0> CPU Time : 531, Real Time: 89, Ratio[CPU_TIME/REAL_TIME] = 5.966292134831461]
+The required coin is "divyaupadhyay}ijqhghk:/"  "0000c2c601dc5341c14bd7746cf730c95b895c028e9f7ffd4d7c1f7197fb0c3a".
+  METRICS:: [PID: <0.87.0> CPU Time : 1016, Real Time: 159, Ratio[CPU_TIME/REAL_TIME] = 6.389937106918239]
+The required coin is "divyaupadhyayw|d;u{y'.k"  "00007c14aad9f69aeb0489140dd37e4faf557a925647eb995bcd586844d15544".
+  METRICS:: [PID: <0.92.0> CPU Time : 93, Real Time: 3, Ratio[CPU_TIME/REAL_TIME] = 31.0]
+The required coin is "divyaupadhyay|s,;{:>{,v"  "0000f7d5536b80078fb3ec71c1585b4088599524d05363f283ac43eab1a143a1".
+  METRICS:: [PID: <0.91.0> CPU Time : 438, Real Time: 91, Ratio[CPU_TIME/REAL_TIME] = 4.813186813186813]
+The required coin is "divyaupadhyay/?]<,naa;/"  "00009e9c791ffbbe7ed311fe28b30a4cadf6132af9fcbb07ff323319b8bebb34".
+  METRICS:: [PID: <0.88.0> CPU Time : 94, Real Time: 23, Ratio[CPU_TIME/REAL_TIME] = 4.086956521739131]
+The required coin is "divyaupadhyayhtd;a?.rpy"  "00006c06ea9cd5eedcd5576076220694e2d2533a1f84a236b2db87696af267b8".
+  METRICS:: [PID: <0.91.0> CPU Time : 640, Real Time: 102, Ratio[CPU_TIME/REAL_TIME] = 6.2745098039215685]
+The required coin is "divyaupadhyay>fjak.o/h/"  "000069e8a9ccf853d6996be769a304d211726ac99cc402618981b8f579043e14".
+  METRICS:: [PID: <0.91.0> CPU Time : 3547, Real Time: 467, Ratio[CPU_TIME/REAL_TIME] = 7.595289079229122]
+The required coin is "divyaupadhyays}]/{uyl]b"  "0000f7620c372586f31c6c0e40346e65b486655f115b6b61622725ed61d3068e".
+  METRICS:: [PID: <0.88.0> CPU Time : 2688, Real Time: 361, Ratio[CPU_TIME/REAL_TIME] = 7.445983379501385]
+The required coin is "divyaupadhyayxmsikjo?]/"  "0000aac00776d9412793cb3ede6a3ff4a308523c53a642e1532e8883b3847257".
+  METRICS:: [PID: <0.92.0> CPU Time : 1718, Real Time: 224, Ratio[CPU_TIME/REAL_TIME] = 7.669642857142857]
+The required coin is "divyaupadhyay<k[yxiqjc["  "0000a0386e25c36181eb1e7e9c5bf204ee810628b59a6331f089019e9562c98b".
+  METRICS:: [PID: <0.89.0> CPU Time : 3657, Real Time: 455, Ratio[CPU_TIME/REAL_TIME] = 8.037362637362637]
+The required coin is "divyaupadhyayl?do;>q;,y"  "0000de01e36ba954669161f1fd3af02e829edd870f5df58776b61fb8d09f5609".
+  METRICS:: [PID: <0.89.0> CPU Time : 109, Real Time: 11, Ratio[CPU_TIME/REAL_TIME] = 9.909090909090908]
+The required coin is "divyaupadhyaycbzw[gubnu"  "00000b2924042e8e76c036c91882127775b222708fc3de5bf89cf9633dd9ac39".
+  METRICS:: [PID: <0.90.0> CPU Time : 2562, Real Time: 338, Ratio[CPU_TIME/REAL_TIME] = 7.579881656804734]
+The required coin is "divyaupadhyay[rc?a[t|wk"  "0000823c854924507c94abd40b10475337edb11f35c2962cc0f1ec440eb6c78b".
+  METRICS:: [PID: <0.87.0> CPU Time : 704, Real Time: 129, Ratio[CPU_TIME/REAL_TIME] = 5.457364341085271]
+The required coin is "divyaupadhyayjkfisccysm"  "0000d58de4a378d6dee91188314b2c0fa6dd25e97c2aa0575cf317c0347ab02f".
+  METRICS:: [PID: <0.92.0> CPU Time : 843, Real Time: 101, Ratio[CPU_TIME/REAL_TIME] = 8.346534653465346]
+The required coin is "divyaupadhyayb['{a|h>}."  "000006690dbd0ebe90c5aaacabbe8d1e9e4217ac9bfa4eba0d6676b04f77224c".
+  METRICS:: [PID: <0.93.0> CPU Time : 1578, Real Time: 213, Ratio[CPU_TIME/REAL_TIME] = 7.408450704225352]
+The required coin is "divyaupadhyay]ryh}?{.,]"  "00000790d4b2d9877438ccb831747ac14170cabfcbfd759c6a5bd99600f2500a".
+  METRICS:: [PID: <0.89.0> CPU Time : 219, Real Time: 18, Ratio[CPU_TIME/REAL_TIME] = 12.166666666666666]
+The required coin is "divyaupadhyay['dbgr:po]"  "000050e2da03dce2d3cd5cf82e9b92f8536016e7acefb2b99396023d09725186".
+  METRICS:: [PID: <0.91.0> CPU Time : 0, Real Time: 4, Ratio[CPU_TIME/REAL_TIME] = 0.0]
+The required coin is "divyaupadhyaysjxdes]/p]"  "0000a4e4164159191a6667cc49385ca95f39f579b6e34ba5363f8e25ed416855".
+  METRICS:: [PID: <0.89.0> CPU Time : 906, Real Time: 131, Ratio[CPU_TIME/REAL_TIME] = 6.916030534351145]
+The required coin is "divyaupadhyayso.?b|mrp<"  "00007c0c2cef9186c52b81e19d7871c68171cc60b16833352f162f0f9769d448".
+  METRICS:: [PID: <0.86.0> CPU Time : 1735, Real Time: 233, Ratio[CPU_TIME/REAL_TIME] = 7.446351931330472]
+The required coin is "divyaupadhyay;?m.sbshi/"  "0000c1368e69a0b620027ac01c0b82d76e905fd6a5be5d8e1d42902bdc91c2d4".
+  METRICS:: [PID: <0.87.0> CPU Time : 906, Real Time: 123, Ratio[CPU_TIME/REAL_TIME] = 7.365853658536586]
+The required coin is "divyaupadhyay}g|wycic?;"  "0000109e31a7c252d586e9cf082e76343782642d4e443fb2075ac4d48316e585".
+  METRICS:: [PID: <0.88.0> CPU Time : 1688, Real Time: 238, Ratio[CPU_TIME/REAL_TIME] = 7.092436974789916]
+The required coin is "divyaupadhyay'/ns/wqhyj"  "0000c7af5b28257ca3a4aded7ee0af73315172718b431845022fd325e4c7a733".
+  METRICS:: [PID: <0.92.0> CPU Time : 796, Real Time: 117, Ratio[CPU_TIME/REAL_TIME] = 6.803418803418803]
+The required coin is "divyaupadhyayngl}';,'vf"  "00000a57ae0b693006f31c0bbc4de606ac775c0d48c7242eb986c796139a0775".
+  METRICS:: [PID: <0.87.0> CPU Time : 110, Real Time: 11, Ratio[CPU_TIME/REAL_TIME] = 10.0]
+The required coin is "divyaupadhyayhjse?lrb,w"  "0000a904eb1b590ad7aa3995c73f09c8392fc74226442d598c7c8b1f8c9592c9".
+  METRICS:: [PID: <0.86.0> CPU Time : 578, Real Time: 131, Ratio[CPU_TIME/REAL_TIME] = 4.412213740458015]
+The required coin is "divyaupadhyayelem'efi,n"  "00008fbac0a4667d0e0f9968401e38a9054330c4c819deedc26d8aac3d3e6ac6".
+  METRICS:: [PID: <0.88.0> CPU Time : 2406, Real Time: 318, Ratio[CPU_TIME/REAL_TIME] = 7.566037735849057]
+The required coin is "divyaupadhyayvs|tje]wmb"  "000087df714e3f61e0bddf292558f9b2ca28ead6c3ba2cf4e14ef839cd580e6a".
+  METRICS:: [PID: <0.90.0> CPU Time : 1625, Real Time: 209, Ratio[CPU_TIME/REAL_TIME] = 7.77511961722488]
+The required coin is "divyaupadhyayte[]heopx'"  "00005bc835077c795b6b306ca9099a9792b0d899249d048ba24b10db9b654fcc".
+  METRICS:: [PID: <0.92.0> CPU Time : 4860, Real Time: 640, Ratio[CPU_TIME/REAL_TIME] = 7.59375]
+The required coin is "divyaupadhyay'mj]/dv}dw"  "0000f0a32699ca2b67774f853ec09c31d182bc3f241cf2e43a333e617c2c0166".
+  METRICS:: [PID: <0.92.0> CPU Time : 1031, Real Time: 129, Ratio[CPU_TIME/REAL_TIME] = 7.992248062015504]
+The required coin is "divyaupadhyay}>o':;zkdt"  "00009f32a0deb23ea4ad477a533189314ec1f43b4902cee91ea14a8399803193".
+  METRICS:: [PID: <0.86.0> CPU Time : 1328, Real Time: 196, Ratio[CPU_TIME/REAL_TIME] = 6.775510204081633]
+The required coin is "divyaupadhyayfirlxa.:sl"  "0000d2e76715f133ff62f5e873f147d86f766038e0f2605784b8931be9d5dfa3".
+  METRICS:: [PID: <0.88.0> CPU Time : 1297, Real Time: 182, Ratio[CPU_TIME/REAL_TIME] = 7.126373626373627]
+The required coin is "divyaupadhyaymbcxqlr;.m"  "0000f1ebe872e11e10ed16823914fa1fc22598188906e799b317724fccb85a5c".
+  METRICS:: [PID: <0.87.0> CPU Time : 656, Real Time: 83, Ratio[CPU_TIME/REAL_TIME] = 7.903614457831325]
+The required coin is "divyaupadhyayiy.n{exh.:"  "00001b8dbd7770ff2787f700f779cd718621d623ca2c01f2943a3522460df65b".
+  METRICS:: [PID: <0.88.0> CPU Time : 1359, Real Time: 176, Ratio[CPU_TIME/REAL_TIME] = 7.721590909090909]
+The required coin is "divyaupadhyay/fgwwqvtz."  "0000a77a9420d77838e406da1751530db96b5300689b2402f3cd76247db62e43".
+  METRICS:: [PID: <0.90.0> CPU Time : 672, Real Time: 109, Ratio[CPU_TIME/REAL_TIME] = 6.165137614678899]
+The required coin is "divyaupadhyay'eduam,o'o"  "000005985b9871cc2612c92ffe2a8294fda0b68b8c0428f9d66add0e4df8810a".
+  METRICS:: [PID: <0.89.0> CPU Time : 1219, Real Time: 170, Ratio[CPU_TIME/REAL_TIME] = 7.170588235294118]
+The required coin is "divyaupadhyayurre<v,niz"  "0000823ca89bbb760c7f986531e0395aff70bae2f892dd0beaa7bbe7a7144d76".
+  METRICS:: [PID: <0.91.0> CPU Time : 781, Real Time: 106, Ratio[CPU_TIME/REAL_TIME] = 7.367924528301887]
+The required coin is "divyaupadhyay]npdexx{f'"  "00000f13ca2847e50c0f8fd3edb1a736bfc86be60ce3b0cdc1c26f742dbf4e12".
+  METRICS:: [PID: <0.86.0> CPU Time : 94, Real Time: 16, Ratio[CPU_TIME/REAL_TIME] = 5.875]
+The required coin is "divyaupadhyayf<glwj{sbk"  "0000b840e5cfa04b4e82ef60b32ff2ca8e618b76b78316a306769e1902fcef03".
+  METRICS:: [PID: <0.87.0> CPU Time : 391, Real Time: 49, Ratio[CPU_TIME/REAL_TIME] = 7.979591836734694]
+The required coin is "divyaupadhyay':pew[gqdy"  "0000cb53482495a8b23e31ab59f7fed3d49eaea54ad976281341c0bd0032b07d".
+  METRICS:: [PID: <0.88.0> CPU Time : 500, Real Time: 92, Ratio[CPU_TIME/REAL_TIME] = 5.434782608695652]
+The required coin is "divyaupadhyay|';f{u,ods"  "0000fa7cd46187ddb2276baea747879d3f0072367f6e8e20d1a372ca884e5074".
+  METRICS:: [PID: <0.88.0> CPU Time : 500, Real Time: 54, Ratio[CPU_TIME/REAL_TIME] = 9.25925925925926]
+The required coin is "divyaupadhyay'/,pkzrx<{"  "000063b513788f3f24e23837902910d0cd2752ee56b9ebfbdd16ad57432157f5".
+  METRICS:: [PID: <0.87.0> CPU Time : 968, Real Time: 136, Ratio[CPU_TIME/REAL_TIME] = 7.117647058823529]
+The required coin is "divyaupadhyayk;qid?'jtm"  "0000cb5e65f2b46aa80f34ef70fcb5928a31a5e0abd8c825a5cb5108df251eb8".
+  METRICS:: [PID: <0.87.0> CPU Time : 3985, Real Time: 514, Ratio[CPU_TIME/REAL_TIME] = 7.752918287937743]
+The required coin is "divyaupadhyay>sjhr]lx}v"  "0000b5e4a9d26673b89c0730d640ee911502f1907256973e68f5ac1b9eeff288".
+  METRICS:: [PID: <0.90.0> CPU Time : 719, Real Time: 86, Ratio[CPU_TIME/REAL_TIME] = 8.36046511627907]
+The required coin is "divyaupadhyay}er|/kuqvi"  "00001e9824b2fb52e5c6318c20c1f29254b21cbf08a97acebfd41e2902ad2508".
+  METRICS:: [PID: <0.93.0> CPU Time : 15, Real Time: 17, Ratio[CPU_TIME/REAL_TIME] = 0.8823529411764706]
+The required coin is "divyaupadhyay|eqr|ww?,}"  "0000387d63ffb5fd4e52a4614982b79e36ff92b3db6a679f6e53396506065c53".
+  METRICS:: [PID: <0.86.0> CPU Time : 313, Real Time: 80, Ratio[CPU_TIME/REAL_TIME] = 3.9125]
+The required coin is "divyaupadhyaydpjj<rdb]f"  "00006a8dbd99759ba2b0fdb55840fe6ffe2a7398b2b5665824352054a52d1909".
+  METRICS:: [PID: <0.86.0> CPU Time : 1734, Real Time: 236, Ratio[CPU_TIME/REAL_TIME] = 7.3474576271186445]
+The required coin is "divyaupadhyay:.less>>{w"  "0000531e498168d46bda9545f1f034c35b110b8aff0747bf6c50e4ef1295e54f".
+  METRICS:: [PID: <0.86.0> CPU Time : 3109, Real Time: 404, Ratio[CPU_TIME/REAL_TIME] = 7.695544554455446]
+The required coin is "divyaupadhyayvue]'kr;k;"  "0000a919e3b25c50a17db0905300b330ba234b1b34111e89f4d94bde95a52d41".
+  METRICS:: [PID: <0.92.0> CPU Time : 1594, Real Time: 213, Ratio[CPU_TIME/REAL_TIME] = 7.483568075117371]
+The required coin is "divyaupadhyayjik?vtw;b]"  "00000925464c103a3e418784ff27e40febc49e403d787e2961098c8f2160d419".
+  METRICS:: [PID: <0.88.0> CPU Time : 94, Real Time: 4, Ratio[CPU_TIME/REAL_TIME] = 23.5]
+The required coin is "divyaupadhyay|:xn}j{,th"  "0000caf2f8d4df789ad63b9c8a0d24811c15a1e0b51e94cef8a09bc8eda5787e".
+  METRICS:: [PID: <0.87.0> CPU Time : 1062, Real Time: 140, Ratio[CPU_TIME/REAL_TIME] = 7.585714285714285]
+The required coin is "divyaupadhyayjcihc}]kg<"  "0000652bbc179a56abb036bd0110c403fe61a039ee577b6299a422c599dbc36b".
+  METRICS:: [PID: <0.88.0> CPU Time : 2485, Real Time: 325, Ratio[CPU_TIME/REAL_TIME] = 7.6461538461538465]
+The required coin is "divyaupadhyayq:w;y?]ka/"  "0000f08554d2b12c01f1500b0c1703fb7f6327f33ab7fcc53869caa93c1089e5".
+  METRICS:: [PID: <0.93.0> CPU Time : 1734, Real Time: 249, Ratio[CPU_TIME/REAL_TIME] = 6.963855421686747]
+The required coin is "divyaupadhyayqogi?ovumv"  "00001f9ceb55e91b27a0f9b90cb1f2bdfd23cb962eb998a8b1b1de19ac80daf9".
+  METRICS:: [PID: <0.93.0> CPU Time : 563, Real Time: 68, Ratio[CPU_TIME/REAL_TIME] = 8.279411764705882]
+The required coin is "divyaupadhyay'zne|?ivi:"  "0000e86346eea9824ae2073d0e56a508e39bb3ce50db6370865e03b8757d918e".
+  METRICS:: [PID: <0.88.0> CPU Time : 2500, Real Time: 374, Ratio[CPU_TIME/REAL_TIME] = 6.684491978609626]
+The required coin is "divyaupadhyay{:nh[}.evy"  "0000e62dee8f96660153bb93c97463a6335e11519a79e2f29a708d386d436304".
+  METRICS:: [PID: <0.91.0> CPU Time : 3765, Real Time: 504, Ratio[CPU_TIME/REAL_TIME] = 7.470238095238095]
+The required coin is "divyaupadhyaycn.ta/hkqp"  "0000959cb8f639ad26f594cba408c1827a58c059bbc9eff4e87f8109f1294968".
+  METRICS:: [PID: <0.93.0> CPU Time : 188, Real Time: 32, Ratio[CPU_TIME/REAL_TIME] = 5.875]
+The required coin is "divyaupadhyaymq?pxl.<:'"  "0000ad140d50fbd7e864d4200f168364503a395bbfd73880373f44f238b6daf6".
+  METRICS:: [PID: <0.86.0> CPU Time : 4484, Real Time: 599, Ratio[CPU_TIME/REAL_TIME] = 7.485809682804675]
+The required coin is "divyaupadhyay'|:p{'ehwf"  "00002a98c7eedc1e24593c442a27e63d90613c4989de7a085f0f92908d9d01a8".
+  METRICS:: [PID: <0.93.0> CPU Time : 2672, Real Time: 347, Ratio[CPU_TIME/REAL_TIME] = 7.70028818443804]
+The required coin is "divyaupadhyayirfsx.}.dz"  "00006d1ddfceb30321f25c79ad5108b54a771004b63d0cc66b5f80db1a50718b".
+  METRICS:: [PID: <0.92.0> CPU Time : 188, Real Time: 32, Ratio[CPU_TIME/REAL_TIME] = 5.875]
+The required coin is "divyaupadhyay?.t|<|a<fs"  "00007e8f64a860f534f555527a5f0838efd752d0bd222a89aa99edbbae9bbc57".
+  METRICS:: [PID: <0.86.0> CPU Time : 1062, Real Time: 136, Ratio[CPU_TIME/REAL_TIME] = 7.8088235294117645]
+The required coin is "divyaupadhyayidl[[[zrgz"  "000021f7cbaaf8ac802d20d1afe0a5416b153bf2df42abb5aca9b6d7f95567c6".
+  METRICS:: [PID: <0.89.0> CPU Time : 328, Real Time: 60, Ratio[CPU_TIME/REAL_TIME] = 5.466666666666667]
+The required coin is "divyaupadhyay|]cagq.]to"  "0000b3ba4015dfabd6f78e4e058b545ef04f77450c8888e33142418043afc02f".
+  METRICS:: [PID: <0.89.0> CPU Time : 719, Real Time: 81, Ratio[CPU_TIME/REAL_TIME] = 8.876543209876543]
+The required coin is "divyaupadhyayb/.]qr.?wt"  "0000cee6eae20b83f2b9044f824d1c2e452517e140660fdc5f12c9877beb5804".
+  METRICS:: [PID: <0.93.0> CPU Time : 1109, Real Time: 215, Ratio[CPU_TIME/REAL_TIME] = 5.158139534883721]
+The required coin is "divyaupadhyaypsfz;[tgn>"  "00008906fe16f9569ecb97dabbebf015771222c689bf6b8a81538f07eac74b6a".
+  METRICS:: [PID: <0.92.0> CPU Time : 1594, Real Time: 229, Ratio[CPU_TIME/REAL_TIME] = 6.960698689956332]
+The required coin is "divyaupadhyayyca,/frkvc"  "00002623ad3fdcc40f77d4eab48ab4e5789d7ef00bb16aa202081a427bd6806a".
+  METRICS:: [PID: <0.89.0> CPU Time : 203, Real Time: 52, Ratio[CPU_TIME/REAL_TIME] = 3.9038461538461537]
+The required coin is "divyaupadhyay{vahlmy>:e"  "0000efb77c6c9d7dd8eb08bac10fe32a5faec90affa208c99a6fd9c37a0cbea9".
+  METRICS:: [PID: <0.92.0> CPU Time : 1000, Real Time: 138, Ratio[CPU_TIME/REAL_TIME] = 7.246376811594203]
+The required coin is "divyaupadhyay|ambbybne'"  "0000eff2c0b90ace6cd5b751501e7ed99bfc03c297790904d094eff12052d1c0".
+  METRICS:: [PID: <0.88.0> CPU Time : 1188, Real Time: 172, Ratio[CPU_TIME/REAL_TIME] = 6.906976744186046]
+The required coin is "divyaupadhyayds[]xg>tks"  "0000b24985ae943dcd7130a2885823910db1bfdd1c943c4f31499ba80f44a2d6".
+  METRICS:: [PID: <0.90.0> CPU Time : 547, Real Time: 63, Ratio[CPU_TIME/REAL_TIME] = 8.682539682539682]
+The required coin is "divyaupadhyay}perss<p;d"  "0000a218fc8c477bd75ca71d3414479f59aeea0ded2a4db679ea34cd203582cb".
+  METRICS:: [PID: <0.90.0> CPU Time : 4859, Real Time: 640, Ratio[CPU_TIME/REAL_TIME] = 7.5921875]
+The required coin is "divyaupadhyay}?h,]bql{t"  "000084a53aa1a339c406755bcbc45b2b01ba2c94468695051c2a6d4e7cc07c95".
+  METRICS:: [PID: <0.87.0> CPU Time : 2906, Real Time: 382, Ratio[CPU_TIME/REAL_TIME] = 7.607329842931938]
+The required coin is "divyaupadhyayx:l,p}m/l|"  "0000fe6a2f69fbac951fe6c755f8691aa5d0404c042df27d4a7514493d71760c".
+  METRICS:: [PID: <0.88.0> CPU Time : 391, Real Time: 58, Ratio[CPU_TIME/REAL_TIME] = 6.741379310344827]
+The required coin is "divyaupadhyaygjdwyn['ca"  "000056c577a0c261d4a57a1be8f6540cf454ab1dd248de15db29b96d4b340017".
+  METRICS:: [PID: <0.90.0> CPU Time : 453, Real Time: 128, Ratio[CPU_TIME/REAL_TIME] = 3.5390625]
+The required coin is "divyaupadhyayb>'p}xf'}t"  "000055175be0f9ebcdf88db478377af0ec0a55214273d2e519262e4c3aa83042".
+  METRICS:: [PID: <0.86.0> CPU Time : 1359, Real Time: 199, Ratio[CPU_TIME/REAL_TIME] = 6.8291457286432165]
+The required coin is "divyaupadhyays.z/<[g<[q"  "00005c0c787e6864ae1b777a59a07121733a5292844c5861b4045b0e2c7b6b5a".
+  METRICS:: [PID: <0.87.0> CPU Time : 219, Real Time: 34, Ratio[CPU_TIME/REAL_TIME] = 6.4411764705882355]
+The required coin is "divyaupadhyay.outq[gkvz"  "0000f2a05d31301c9e2eb700cf07c85fc323056d273ac7c18976d9bd5f84d6ce".
+  METRICS:: [PID: <0.88.0> CPU Time : 219, Real Time: 31, Ratio[CPU_TIME/REAL_TIME] = 7.064516129032258]
+The required coin is "divyaupadhyayjs:}n{eyr:"  "0000dfe18c2bde99737228d7a08286ac1ce781dd64c4e3615c03f3e359faad26".
+  METRICS:: [PID: <0.90.0> CPU Time : 94, Real Time: 9, Ratio[CPU_TIME/REAL_TIME] = 10.444444444444445]
+The required coin is "divyaupadhyay]je|x:p?[}"  "0000ca9fac43850c063a6e6e206ab4416a02de2bdca6d7475772f7d9c5dcdb5b".
+  METRICS:: [PID: <0.91.0> CPU Time : 2796, Real Time: 375, Ratio[CPU_TIME/REAL_TIME] = 7.456]
+The required coin is "divyaupadhyayc|]xta]<.>"  "00002526a9ac3da7be98e96fd37dfc8180658adc1e6379abbb9dbc2d1bf6b6ca".
+  METRICS:: [PID: <0.89.0> CPU Time : 5204, Real Time: 674, Ratio[CPU_TIME/REAL_TIME] = 7.721068249258161]
+The required coin is "divyaupadhyaym/;r,axany"  "00005bb966e57f140e9b2f6b8e51123118edb286547df37ee5fcdc39fe3795a9".
+  METRICS:: [PID: <0.91.0> CPU Time : 750, Real Time: 84, Ratio[CPU_TIME/REAL_TIME] = 8.928571428571429]
+The required coin is "divyaupadhyaykt}|v]<esz"  "000038a3cdd546ad4a3a68c06a4ca7827045dcf25f89c7895e7d2dbaacdd4745".
+  METRICS:: [PID: <0.91.0> CPU Time : 953, Real Time: 156, Ratio[CPU_TIME/REAL_TIME] = 6.108974358974359]
+The required coin is "divyaupadhyayb<ip|kostm"  "0000528d40b7cfa7b0ddfbd9b923aec1476d33c1c628e86159937f92e602674d".
+  METRICS:: [PID: <0.93.0> CPU Time : 5953, Real Time: 762, Ratio[CPU_TIME/REAL_TIME] = 7.812335958005249]
+The required coin is "divyaupadhyayt.:].ewvti"  "00008fca31ebb6298815492ca3929acb66b4f0882eacde715c7d84ae324d006f".
+  METRICS:: [PID: <0.93.0> CPU Time : 656, Real Time: 143, Ratio[CPU_TIME/REAL_TIME] = 4.5874125874125875]
+The required coin is "divyaupadhyaynwzxi}.t;j"  "00001dfda0de7c9b0e648b22fa06a6b8a090f6d075876b4f6d7ae955e9d9c17e".
+  METRICS:: [PID: <0.92.0> CPU Time : 2672, Real Time: 339, Ratio[CPU_TIME/REAL_TIME] = 7.882005899705015]
+The required coin is "divyaupadhyay}emjiagrxr"  "0000c0a097ff69b82d127f40558afce2cc6ab6924f7476d15a9f77c673e7a89c".
+  METRICS:: [PID: <0.91.0> CPU Time : 2703, Real Time: 360, Ratio[CPU_TIME/REAL_TIME] = 7.508333333333334]
+The required coin is "divyaupadhyayavo;]n.<'}"  "0000f7467325314c03d844fbaf1cbba4858690c4166a8c692b67642b74c24810".
+  METRICS:: [PID: <0.87.0> CPU Time : 813, Real Time: 128, Ratio[CPU_TIME/REAL_TIME] = 6.3515625]
+The required coin is "divyaupadhyayydc{mc'[wg"  "0000278346199fcf2a39bdbf366fe23c304ec6bc1dfd21a9dcf68c6d3b92471d".
+  METRICS:: [PID: <0.93.0> CPU Time : 218, Real Time: 24, Ratio[CPU_TIME/REAL_TIME] = 9.083333333333334]
+The required coin is "divyaupadhyay;cp[ov;{ni"  "0000e78c55839afff1f448c8a94791c6caf37ef6acbf9a014e9774fcae0bd45b".
+  METRICS:: [PID: <0.86.0> CPU Time : 1797, Real Time: 257, Ratio[CPU_TIME/REAL_TIME] = 6.992217898832685]
+The required coin is "divyaupadhyay{pbxvml|.m"  "0000ea88630bf908fcf97ebf34c47a6e915a46210eb271be2b795c7a633243e0".
+  METRICS:: [PID: <0.89.0> CPU Time : 641, Real Time: 76, Ratio[CPU_TIME/REAL_TIME] = 8.43421052631579]
+The required coin is "divyaupadhyaygwfdzvk,{q"  "0000f7f6bb05371fb56448c703f5d650b54147e24c422ce7eb39d98c4136bd81".
+  METRICS:: [PID: <0.87.0> CPU Time : 672, Real Time: 101, Ratio[CPU_TIME/REAL_TIME] = 6.653465346534653]
+The required coin is "divyaupadhyayvnor>hx.ys"  "00001ea49f33b5634754b1eb06e4b2c8697f8a82a2e1da4f2dfb6ab4a680b3af".
+  METRICS:: [PID: <0.90.0> CPU Time : 1218, Real Time: 176, Ratio[CPU_TIME/REAL_TIME] = 6.920454545454546]
+The required coin is "divyaupadhyay;htiip{{zf"  "0000190fe91fe4064049c60863969a602032faf44bece40fbe044156d5a42fcc".
+  METRICS:: [PID: <0.87.0> CPU Time : 1422, Real Time: 264, Ratio[CPU_TIME/REAL_TIME] = 5.386363636363637]
+The required coin is "divyaupadhyayb}y?wz}:,'"  "000036cd58f9468f5b72abf6a4d3fd06e84c440f9fd841549d31763f9da47ae8".
+  METRICS:: [PID: <0.93.0> CPU Time : 2328, Real Time: 396, Ratio[CPU_TIME/REAL_TIME] = 5.878787878787879]
+The required coin is "divyaupadhyaycqro>b;ud|"  "0000338542d3d5b4880538e5e1c8d48f5026aae86dcc0a1f4bbf3504d6b06cb3".
+  METRICS:: [PID: <0.91.0> CPU Time : 360, Real Time: 66, Ratio[CPU_TIME/REAL_TIME] = 5.454545454545454]

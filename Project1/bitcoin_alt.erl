@@ -11,7 +11,7 @@ gen_coin(Value, Leading_Zeroes) ->
                               ++ Acc
                     end, [] , lists:seq(1, 10)),
 
-    UFID = "devangkale",
+    UFID = "divyaupadhyay",
     Finalstring = string:concat(UFID, Ranstring),
     FinalSHA256 = io_lib:format("~64.16.0b", [binary:decode_unsigned(crypto:hash(sha256, Finalstring))]),
     Check_Zeroes = string:slice(FinalSHA256, 0, Value),
@@ -19,12 +19,19 @@ gen_coin(Value, Leading_Zeroes) ->
     if 
         Status -> 
             io:fwrite("The required coin is ~p  ~p~n", [Finalstring,FinalSHA256]),
-            {_, Time1} = statistics(runtime),
+            {_, Time1} = statistics(runtime), 
             {_, Time2} = statistics(wall_clock),
             U1 = Time1,
             U2 = Time2,
-            U3 = Time1/Time2,
-            io:format("PID: ~p CPU Time : ~p, Real Time: ~p, Ratio = ~p~n",[self(),U1, U2, U3]);
+            U3 = "undef",
+            try U1/U2 of 
+                 _ -> {ok, Fd} = file:open("Result.txt",[append]),
+                 io:format(Fd, "The required coin is ~p  ~p.~n  METRICS:: [PID: ~p CPU Time : ~p, Real Time: ~p, Ratio[CPU_TIME/REAL_TIME] = ~p]~n", [Finalstring,FinalSHA256,self(),U1, U2, U1/U2])
+            catch 
+                error:badarith -> {ok, Fd} = file:open("Result.txt",[append]),
+                io:format(Fd, "The required coin is ~p  ~p.~n  METRICS:: [PID: ~p CPU Time : ~p, Real Time: ~p, Ratio[CPU_TIME/REAL_TIME] = ~p]~n", [Finalstring,FinalSHA256,self(),U1, U2, U3])
+            end;
+            % io:format("PID: ~p CPU Time : ~p, Real Time: ~p, Ratio = ~p~n",[self(),U1, U2, U3]),
         true ->
                 % io:fwrite("Coin Not Found ~n")
             []
@@ -35,19 +42,20 @@ main(0, _, _) ->
     exit(self());
     
 main(N, KValue, Leading_Zeroes) ->
-    % io:fwrite("Generating coin on ~w~n", [self()]),
+    % io:fwrite("Searching coin on ~w~n", [self()]),
     gen_coin(KValue, Leading_Zeroes),
     main(N-1, KValue, Leading_Zeroes).
 
 for_run(0,_,_,_) ->  
         io:fwrite("All workers are spawned now:: Bye!!~n");
 
-for_run(N,KValue,Leading_Zeroes, Workload) when N > 0 -> 
+for_run(Worker,KValue,Leading_Zeroes, Workload) when Worker > 0 -> 
     Pid = spawn(bitcoin_alt, main, [Workload, KValue, Leading_Zeroes]), 
     io:fwrite("Worker generated with the PID  ~w~n", [Pid]),
-    for_run(N-1,KValue,Leading_Zeroes, Workload).
+    for_run(Worker-1,KValue,Leading_Zeroes, Workload).
 
 run() ->
    {ok, KValue} = io:read("Please insert the number of Zeroes: "),
    Leading_Zeroes = lists:concat(lists:duplicate(KValue, "0")),
-   for_run(8,KValue,Leading_Zeroes, 100000).
+   file:delete("Result.txt"),
+   for_run(8,KValue,Leading_Zeroes, 1000000).
