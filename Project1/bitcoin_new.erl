@@ -1,6 +1,6 @@
 -module(bitcoin_new).
 -compile(export_all).
--define (TIMEOUT, 500).
+-define (TIMEOUT, 5).
 
 gen_randm_string() ->
     receive
@@ -15,25 +15,25 @@ gen_randm_string() ->
 
             UFID = "devangkale",
             Finalstring = string:concat(UFID, Ranstring),
-            Client ! {self(), Finalstring}
-            % gen_randm_string()
+            Client ! {self(), Finalstring},
+            gen_randm_string()
 
-    % after ?TIMEOUT ->
-    %     exit(no_activity)
-    end,
-    gen_randm_string().
+    after ?TIMEOUT ->
+        exit(no_activity)
+    end.
+    % gen_randm_string().
 
 gen_sha256_hash() ->
     receive
         {Client, {FinalRanString, genhash}} ->
             SHA256 = io_lib:format("~64.16.0b", [binary:decode_unsigned(crypto:hash(sha256, FinalRanString))]),
-            Client ! {self(), SHA256}
-        % gen_sha256_hash()
+            Client ! {self(), SHA256},
+        gen_sha256_hash()
 
-    % after ?TIMEOUT ->
-    %     exit(no_activity)
-    end,
-    gen_sha256_hash().
+    after ?TIMEOUT ->
+        exit(no_activity)
+    end.
+    % gen_sha256_hash().
 
 
 main(Value, Leading_Zeroes) ->
@@ -61,7 +61,8 @@ main(Value, Leading_Zeroes) ->
           {_, Time2} = statistics(wall_clock),
           U1 = Time1,
           U2 = Time2,
-          U3 = Time1/Time2,
+          U3 = 0,
+        %   U3 = Time1/Time2,
           io:format("CPU Time : ~p, Real Time: ~p, Ratio = ~p~n",[U1, U2, U3]),
           main(Value, Leading_Zeroes);
         true -> 
