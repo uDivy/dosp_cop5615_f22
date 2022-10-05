@@ -10,18 +10,22 @@ build_topology(Types) ->
             Start = ErlangSystemTime = erlang:system_time(second),
             you_know_what_line(length(LineTopology), NumNodes, LineTopology),
             End = ErlangSystemTime = erlang:system_time(second),
-            io:format("Time Take by Line Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
+            io:format("Time Taken by Line Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
         {twodgrid, NumNodes} when NumNodes > 0 -> 
             Col = erlang:list_to_integer(erlang:float_to_list(math:sqrt(NumNodes),[{decimals,0}])),
             TwoDTopology = build_twodgrid(NumNodes, Col, []),
             io:format("The 2D Grid Topology is: ~p~n",[TwoDTopology]);
+            Start = ErlangSystemTime = erlang:system_time(second),
+            you_know_what_twod(1, 1, TwoDTopology),
+            End = ErlangSystemTime = erlang:system_time(second),
+            io:format("Time Taken by 2D Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
         {fullnw, NumNodes} when NumNodes > 0 -> 
             FullNWTopology = build_fullnw(NumNodes, #{}),
             io:format("The Full Network Topology is: ~p~n",[maps:find("Neighbour",FullNWTopology)]),
             Start = ErlangSystemTime = erlang:system_time(second),
             you_know_what_fullnw(maps:get("Neighbour",FullNWTopology)),
             End = ErlangSystemTime = erlang:system_time(second),
-            io:format("Time Take by Full Network Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
+            io:format("Time Taken by Full Network Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
         {impthreed, NumNodes} when NumNodes > 0 -> 
             Col = erlang:list_to_integer(erlang:float_to_list(math:sqrt(NumNodes),[{decimals,0}])),
             ThreeDTopology = build_impthreed(NumNodes, Col, []),
@@ -176,3 +180,27 @@ you_know_what_fullnw(FullNWTopology)->
     end
     end,
 you_know_what_fullnw(FullNWTopologyNew).
+
+%% 2D Grid
+find_neighbour_2d(row, col, directions) ->
+    io:format().
+
+you_know_what_twod(_, _, []) ->
+    done;
+you_know_what_twod(i, j, TwoDTopology)->
+    Blockof = lists:nth(i, TwoDTopology),
+    Heardby = lists:nth(j, Blockof),
+    Heardby ! {"youknowwhat", self(), connect},
+    receive
+    {really, Count} ->
+        io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
+    if Count >= 10 ->
+        Heardby ! bye,
+        TwoDTopologyNew = lists:delete(Heardby, TwoDTopology);
+        % io:format("Deleted: ~w~n",[LineTopologyNew]);
+    true ->
+        TwoDTopologyNew = TwoDTopology
+    end
+    end,
+    NewAd = find_neighbour_2d(i, j, ["n", "s", "e", "w"]),
+you_know_what_twod(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopologyNew).
