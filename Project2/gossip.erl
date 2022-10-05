@@ -14,6 +14,10 @@ build_topology(Types) ->
         {fullnw, NumNodes} when NumNodes > 0 -> 
             FullNWTopology = build_fullnw(NumNodes, #{}),
             io:format("The Full Network Topology is: ~p~n",[FullNWTopology]);
+        {impthreed, NumNodes} when NumNodes > 0 -> 
+            Col = erlang:list_to_integer(erlang:float_to_list(math:sqrt(NumNodes),[{decimals,0}])),
+            ThreeDTopology = build_impthreed(NumNodes, Col, []),
+            io:format("The Imperfect 3D Grid Topology is: ~p~n",[ThreeDTopology]);
         {_, NumNodes} when NumNodes == 0 ->
             unknown
     end.
@@ -54,4 +58,9 @@ build_fullnw(NumNodes, _) ->
     Record = build_line(NumNodes, []),
     build_fullnw(0, Record).
 
-
+build_impthreed(NumNodes, Col, ThreeDTopology) when NumNodes =< Col->
+    Record = build_line(NumNodes, []),
+    [Record | ThreeDTopology];
+build_impthreed(NumNodes, Col, Rest) when NumNodes >= Col ->
+    Record = build_line(Col, []),
+    build_impthreed(NumNodes-Col, Col, [Record | Rest]).
