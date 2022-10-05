@@ -6,22 +6,23 @@ build_topology(Types) ->
     case Types of
         {line, NumNodes} when NumNodes > 0 ->
             LineTopology = build_line(NumNodes, []),
-            io:format("The Line Topology is: ~p~n",[LineTopology]),
+            % io:format("The Line Topology is: ~p~n",[LineTopology]),
             Start = ErlangSystemTime = erlang:system_time(second),
             you_know_what_line(length(LineTopology), NumNodes, LineTopology),
             End = ErlangSystemTime = erlang:system_time(second),
             io:format("Time Taken by Line Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
         {twodgrid, NumNodes} when NumNodes > 0 -> 
             Col = erlang:list_to_integer(erlang:float_to_list(math:sqrt(NumNodes),[{decimals,0}])),
+            Row = erlang:list_to_integer(erlang:float_to_list(math:ceil(NumNodes / Col),[{decimals,0}])),
             TwoDTopology = build_twodgrid(NumNodes, Col, []),
-            io:format("The 2D Grid Topology is: ~p~n",[TwoDTopology]),
+            % io:format("The 2D Grid Topology is: ~p~n",[TwoDTopology]),
             Start = ErlangSystemTime = erlang:system_time(second),
-            % you_know_what_twod(1, 1, TwoDTopology),
+            you_know_what_twod(1, 1, TwoDTopology, Row, Col, [], open),
             End = ErlangSystemTime = erlang:system_time(second),
             io:format("Time Taken by 2D Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
         {fullnw, NumNodes} when NumNodes > 0 -> 
             FullNWTopology = build_fullnw(NumNodes, #{}),
-            io:format("The Full Network Topology is: ~p~n",[maps:find("Neighbour",FullNWTopology)]),
+            % io:format("The Full Network Topology is: ~p~n",[maps:find("Neighbour",FullNWTopology)]),
             Start = ErlangSystemTime = erlang:system_time(second),
             you_know_what_fullnw(maps:get("Neighbour",FullNWTopology)),
             End = ErlangSystemTime = erlang:system_time(second),
@@ -37,7 +38,7 @@ build_topology(Types) ->
 listen(Count) ->
     receive
         bye ->
-            io:format("Line closed~n", []),
+            % io:format("Line closed~n", []),
             exit(self());
         {Msg, Sender_id} -> 
             % io:format("My name is ~w and I heard ~p from ~w and the count is ~w~n",[self(), Msg, Sender_id, Count]),
@@ -67,7 +68,7 @@ build_line(NumNodes, Rest) ->
 build_line(0, LineTopology, _)  ->
     LineTopology;
 build_line(NumNodes, Rest, Row) ->
-    AllowedChars = "qwertyuiopasdfghjklzxcvbnm[]\';./,{}|:<>?",
+    AllowedChars = "qwertyuiopasdfghjklzxcvbnm",
 
     Ranstring = lists:foldl(fun(_, Acc) ->
                     [lists:nth(rand:uniform(length(AllowedChars)),
@@ -87,7 +88,7 @@ build_line(NumNodes, Rest, Row) ->
 
 
 build_twodgrid(NumNodes, Col, TwoDTopology) when NumNodes =< Col->
-    Record = build_line(NumNodes, [], 1),
+    Record = build_line(Col, [], 1),
     [Record | TwoDTopology];
 build_twodgrid(NumNodes, Col, Rest) when NumNodes >= Col ->
     Record = build_line(Col, [], 1),
@@ -100,7 +101,7 @@ build_fullnw(NumNodes, _) ->
     build_fullnw(0, Record).
 
 build_impthreed(NumNodes, Col, ThreeDTopology) when NumNodes =< Col->
-    Record = build_line(NumNodes, [], 1),
+    Record = build_line(Col, [], 1),
     [Record | ThreeDTopology];
 build_impthreed(NumNodes, Col, Rest) when NumNodes >= Col ->
     Record = build_line(Col, [], 1),
@@ -117,7 +118,7 @@ you_know_what_line(NumNodes, Pos, LineTopology) when Pos == NumNodes ->
     Heardby ! {"youknowwhat", self(), connect},
     receive
     {really, Count} ->
-        io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
+        % io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
     if Count >= 10 ->
         Heardby ! bye,
         LineTopologyNew = lists:delete(Heardby, LineTopology);
@@ -135,7 +136,7 @@ you_know_what_line(NumNodes, Pos, LineTopology) when NumNodes == 1 ->
     Heardby ! {"youknowwhat", self(), connect},
     receive
     {really, Count} ->
-        io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
+        % io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
     if Count >= 10 ->
         Heardby ! bye,
         LineTopologyNew = lists:delete(Heardby, LineTopology);
@@ -154,7 +155,7 @@ you_know_what_line(NumNodes, Pos, LineTopology) when Pos > NumNodes div 2 ->
     Heardby ! {"youknowwhat", self(), connect},
     receive
     {really, Count} ->
-        io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
+        % io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
     if Count >= 10 ->
         Heardby ! bye,
         LineTopologyNew = lists:delete(Heardby, LineTopology);
@@ -173,7 +174,7 @@ you_know_what_line(NumNodes, Pos, LineTopology) when Pos =< NumNodes div 2 ->
     Heardby ! {"youknowwhat", self(), connect},
     receive
     {really, Count} ->
-        io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
+        % io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
     if Count >= 10 ->
         Heardby ! bye,
         LineTopologyNew = lists:delete(Heardby, LineTopology);
@@ -192,7 +193,7 @@ you_know_what_fullnw(FullNWTopology)->
     Heardby ! {"youknowwhat", self(), connect},
     receive
     {really, Count} ->
-        io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
+        % io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
     if Count >= 10 ->
         Heardby ! bye,
         FullNWTopologyNew = lists:delete(Heardby, FullNWTopology);
@@ -204,27 +205,62 @@ you_know_what_fullnw(FullNWTopology)->
 you_know_what_fullnw(FullNWTopologyNew).
 
 %% 2D Grid
-find_neighbour_2d(row, col, directions) ->
-    io:format(lists:nth(rand:uniform(length(directions)),directions)),
-    [row, col].
+find_neighbour_2d(Rownew, Colnew, yes, _, _) ->
+    [Rownew, Colnew];
+find_neighbour_2d(Row, Col, look, MaxRow, MaxCol) ->
+    Arrow = rand:uniform(4),
+    case Arrow of 
+        1 ->
+            if Row - 1  == 0 ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_2d(Row-1, Col, yes, MaxRow, MaxCol)
+            end;
+        2 -> 
+            if Row + 1  > MaxRow ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_2d(Row+1, Col, yes, MaxRow, MaxCol)
+            end;
+        3 -> 
+            if Col + 1  > MaxCol ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_2d(Row, Col+1, yes, MaxRow, MaxCol)
+            end;
+        4 -> 
+            if Col - 1  == 0 ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_2d(Row, Col-1, yes, MaxRow, MaxCol)
+            end
+    end.
 
-you_know_what_twod(_, _, []) ->
+you_know_what_twod(_, _, _, _, _, _, close) ->
     done;
-you_know_what_twod(i, j, TwoDTopology)->
-    Blockof = lists:nth(i, TwoDTopology),
-    Heardby = lists:nth(j, Blockof),
-    Heardby ! {"youknowwhat", self(), connect},
-    receive
-    {really, Count} ->
-        io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
-    if Count >= 10 ->
-        Heardby ! bye,
-        TwoDTopologyNew = lists:delete(Heardby, TwoDTopology);
-        % io:format("Deleted: ~w~n",[LineTopologyNew]);
+you_know_what_twod(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, open)->
+    NumNodes = MaxRow*MaxCol,
+    if length(Exclude) == NumNodes ->
+        you_know_what_twod(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, close);
     true ->
-        TwoDTopologyNew = TwoDTopology
-    end
-    end,
-    NewAd = find_neighbour_2d(i, j, ["n", "s", "e", "w"]),
-    io:format("~w~n",[NewAd]),
-you_know_what_twod(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopologyNew).
+        Blockof = lists:nth(Row, TwoDTopology),
+        Heardby = lists:nth(Col, Blockof),
+        Val = lists:member(Heardby, Exclude),
+        if  Val == true ->
+            NewAd = find_neighbour_2d(Row, Col, look, MaxRow, MaxCol),
+            you_know_what_twod(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopology, MaxRow, MaxCol, Exclude, open);
+        true ->
+            Heardby ! {"youknowwhat", self(), connect},
+            NewAd = find_neighbour_2d(Row, Col, look, MaxRow, MaxCol),
+            receive
+                {really, Count} ->
+                    % io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
+                if Count >= 10 ->
+                    Heardby ! bye,
+                    you_know_what_twod(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopology, MaxRow, MaxCol, [Heardby | Exclude], open);
+                true ->
+                    you_know_what_twod(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopology, MaxRow, MaxCol, Exclude, open)
+                end
+            end
+        end
+    end.
