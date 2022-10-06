@@ -8,6 +8,7 @@ build_topology(Types) ->
             LineTopology = build_line(NumNodes, [],1),
             % io:format("The Line Topology is: ~p~n",[LineTopology]),
             Neighbour = find_my_neighbour_1d(NumNodes, NumNodes, LineTopology, []),
+            % io:format("~w~n", [Neighbour]),
             % register(mycounter, spawn(gossip, await_result, [0, 0])),
             Start = ErlangSystemTime = erlang:system_time(millisecond),
             you_know_what_line(NumNodes, NumNodes, LineTopology, Neighbour, mycounter),
@@ -17,32 +18,37 @@ build_topology(Types) ->
             unknown
     end.
 
-listen(Count, Neighbour) ->
+listen(Count) ->
     receive
-        {Gossip, Sender_id} ->
-            % io:format("~w~n",[Neighbour]),
-            Sender_id ! ack
-            % if Count >= 10 ->
-            %     Sender_id ! done,
-            %     exit(self());
-            % true ->
-            %     io:format("My name is ~w and I heard ~p from ~w ~w times~n",[self(), Gossip, Sender_id, Count])
-            %     % Rown = rand:uniform(length(Neighbour)),
-            %     % Coln = rand:uniform(length(Rown)),
-            %     % Blockof = lists:nth(Rown, Neighbour),
-            %     % Heardby = lists:nth(Coln, Blockof),
-            %     % case whereis(Heardby) of 
-            %     %     undefined -> listen(Count)
-            %     % end,
-            %     % Heardby ! {"youknowwhat", Sender_id, Neighbour, connectline}
-            % end
+        {Msg, Sender_id} -> 
+            % io:format("My name is ~w and I heard ~p from ~w and the count is ~w~n",[self(), Msg, Sender_id, Count]),
+            Sender_id ! ack;
+        {Gossip, Sender_id, Neighbour, Pos, connectline} ->
+            if Count > 10 ->
+                Sender_id ! done,
+                exit(self());
+            true ->
+                io:format("My name is ~w and I heard ~p from ~w ~w times~n",[self(), Gossip, Sender_id, Count]),
+                Blockof = lists:nth(Pos, Neighbour),
+                Coln = rand:uniform(length(Blockof)),
+                if Coln == 1 ->
+                    if Pos == 1 ->
+                        Posnew = Pos + 1;
+                    true ->
+                        Posnew = Pos - 1
+                    end;
+                true ->
+                    Posnew = Pos + 1
+                end,
+                Heardby = lists:nth(Coln, Blockof),
+                case whereis(Heardby) of 
+                    undefined -> listen(Count);
+                    _ -> Heardby ! {"youknowwhat", Sender_id, Neighbour, Posnew, connectline}
+                end
+            end
     end,
-    listen(Count+1, Neighbour).
+    listen(Count+1).
 
-    
-    
-    
-    
 %% BUILD TOPOLOGY
 build_line(0, LineTopology, _)  ->
     LineTopology;
@@ -56,6 +62,13 @@ build_line(NumNodes, Rest, Row) ->
                     end, [] , lists:seq(1, 10)),
 
     Str = Ranstring ++ "human" ++ integer_to_list(Row) ++ integer_to_list(NumNodes),
+    register(list_to_atom(Str), spawn(gossip2, listen, [0])),
+    list_to_atom(Str) ! {"Nothing", self()},
+    receive
+    ack -> 
+        % io:format("The new member in topology is: ~w~n",[Pid])
+        io:format("",[])
+    end,
     build_line(NumNodes-1, [list_to_atom(Str) | Rest], Row+1).
 
 
@@ -89,11 +102,10 @@ you_know_what_line(NumNodes, Pos, LineTopology, Neighbour, mycounter) when Pos =
     end;
 you_know_what_line(NumNodes, Pos, LineTopology,Neighbour, mycounter) when Pos == NumNodes->
     Heardby = lists:nth(Pos, LineTopology),
-    register(Heardby, spawn(gossip, listen, [1, Neighbour])),
     % io:format("~w ~n",[Heardby]),
-    Heardby ! {"youknowwhat", self(), connect},
-    receive
-        ack ->
-            io:format("Final ~w ~n",[Heardby])
-    end.
-    % you_know_what_line(NumNodes, 0, LineTopology,Neighbour, mycounter).
+    Heardby ! {"youknowwhat", self(), Neighbour, Pos,  connectline},
+    % receive
+    %     ack ->
+    %         io:format("Final ~w ~n",[Heardby])
+    % end.
+    you_know_what_line(NumNodes, 0, LineTopology,Neighbour, mycounter).
