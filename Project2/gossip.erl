@@ -7,30 +7,35 @@ build_topology(Types) ->
         {line, NumNodes} when NumNodes > 0 ->
             LineTopology = build_line(NumNodes, []),
             % io:format("The Line Topology is: ~p~n",[LineTopology]),
-            Start = ErlangSystemTime = erlang:system_time(second),
+            Start = ErlangSystemTime = erlang:system_time(millisecond),
             you_know_what_line(length(LineTopology), NumNodes, LineTopology),
-            End = ErlangSystemTime = erlang:system_time(second),
-            io:format("Time Taken by Line Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
+            End = ErlangSystemTime = erlang:system_time(millisecond),
+            io:format("Time Taken by Line Topology for ~w Nodes is: ~w milliseconds~n", [NumNodes, End-Start]);
         {twodgrid, NumNodes} when NumNodes > 0 -> 
             Col = erlang:list_to_integer(erlang:float_to_list(math:sqrt(NumNodes),[{decimals,0}])),
             Row = erlang:list_to_integer(erlang:float_to_list(math:ceil(NumNodes / Col),[{decimals,0}])),
             TwoDTopology = build_twodgrid(NumNodes, Col, []),
             % io:format("The 2D Grid Topology is: ~p~n",[TwoDTopology]),
-            Start = ErlangSystemTime = erlang:system_time(second),
+            Start = ErlangSystemTime = erlang:system_time(millisecond),
             you_know_what_twod(1, 1, TwoDTopology, Row, Col, [], open),
-            End = ErlangSystemTime = erlang:system_time(second),
-            io:format("Time Taken by 2D Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
+            End = ErlangSystemTime = erlang:system_time(millisecond),
+            io:format("Time Taken by 2D Topology for ~w Nodes is: ~w milliseconds~n", [NumNodes, End-Start]);
         {fullnw, NumNodes} when NumNodes > 0 -> 
             FullNWTopology = build_fullnw(NumNodes, #{}),
             % io:format("The Full Network Topology is: ~p~n",[maps:find("Neighbour",FullNWTopology)]),
-            Start = ErlangSystemTime = erlang:system_time(second),
+            Start = ErlangSystemTime = erlang:system_time(millisecond),
             you_know_what_fullnw(maps:get("Neighbour",FullNWTopology)),
-            End = ErlangSystemTime = erlang:system_time(second),
-            io:format("Time Taken by Full Network Topology for ~w Nodes is: ~w seconds~n", [NumNodes, End-Start]);
+            End = ErlangSystemTime = erlang:system_time(millisecond),
+            io:format("Time Taken by Full Network Topology for ~w Nodes is: ~w milliseconds~n", [NumNodes, End-Start]);
         {impthreed, NumNodes} when NumNodes > 0 -> 
             Col = erlang:list_to_integer(erlang:float_to_list(math:sqrt(NumNodes),[{decimals,0}])),
+            Row = erlang:list_to_integer(erlang:float_to_list(math:ceil(NumNodes / Col),[{decimals,0}])),
             ThreeDTopology = build_impthreed(NumNodes, Col, []),
-            io:format("The Imperfect 3D Grid Topology is: ~p~n",[ThreeDTopology]);
+            % io:format("The Imperfect 3D Grid Topology is: ~p~n",[ThreeDTopology]);
+            Start = ErlangSystemTime = erlang:system_time(millisecond),
+            you_know_what_threed(1, 1, ThreeDTopology, Row, Col, [], open),
+            End = ErlangSystemTime = erlang:system_time(millisecond),
+            io:format("Time Taken by Imperfect 3D Topology for ~w Nodes is: ~w milliseconds~n", [NumNodes, End-Start]);
         {_, NumNodes} when NumNodes == 0 ->
             unknown
     end.
@@ -208,7 +213,7 @@ you_know_what_fullnw(FullNWTopologyNew).
 find_neighbour_2d(Rownew, Colnew, yes, _, _) ->
     [Rownew, Colnew];
 find_neighbour_2d(Row, Col, look, MaxRow, MaxCol) ->
-    Arrow = rand:uniform(4),
+    Arrow = rand:uniform(8),
     case Arrow of 
         1 ->
             if Row - 1  == 0 ->
@@ -233,6 +238,46 @@ find_neighbour_2d(Row, Col, look, MaxRow, MaxCol) ->
                 find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
             true ->
                 find_neighbour_2d(Row, Col-1, yes, MaxRow, MaxCol)
+            end;
+        5 ->
+            if Row - 1  /= 0 ->
+                if Col + 1 < MaxCol -> 
+                    find_neighbour_2d(Row-1, Col+1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        6 -> 
+            if Row + 1  < MaxRow ->
+                if Col + 1 < MaxCol -> 
+                    find_neighbour_2d(Row+1, Col+1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        7 -> 
+            if Row + 1  < MaxRow ->
+                if Col - 1 /= 0 -> 
+                    find_neighbour_2d(Row+1, Col-1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        8 -> 
+            if Row - 1  /= 0 ->
+                if Col - 1 /= 0 -> 
+                    find_neighbour_2d(Row-1, Col-1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
             end
     end.
 
@@ -260,6 +305,111 @@ you_know_what_twod(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, open)->
                     you_know_what_twod(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopology, MaxRow, MaxCol, [Heardby | Exclude], open);
                 true ->
                     you_know_what_twod(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopology, MaxRow, MaxCol, Exclude, open)
+                end
+            end
+        end
+    end.
+
+%% 3D Grid
+find_neighbour_3d(Rownew, Colnew, yes, _, _) ->
+    [Rownew, Colnew];
+find_neighbour_3d(Row, Col, look, MaxRow, MaxCol) ->
+    Arrow = rand:uniform(9),
+    case Arrow of 
+        1 ->
+            if Row - 1  == 0 ->
+                find_neighbour_3d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_3d(Row-1, Col, yes, MaxRow, MaxCol)
+            end;
+        2 -> 
+            if Row + 1  > MaxRow ->
+                find_neighbour_3d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_3d(Row+1, Col, yes, MaxRow, MaxCol)
+            end;
+        3 -> 
+            if Col + 1  > MaxCol ->
+                find_neighbour_3d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_3d(Row, Col+1, yes, MaxRow, MaxCol)
+            end;
+        4 -> 
+            if Col - 1  == 0 ->
+                find_neighbour_3d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_3d(Row, Col-1, yes, MaxRow, MaxCol)
+            end;
+        5 ->
+            if Row - 1  /= 0 ->
+                if Col + 1 < MaxCol -> 
+                    find_neighbour_3d(Row-1, Col+1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        6 -> 
+            if Row + 1  < MaxRow ->
+                if Col + 1 < MaxCol -> 
+                    find_neighbour_3d(Row+1, Col+1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        7 -> 
+            if Row + 1  < MaxRow ->
+                if Col - 1 /= 0 -> 
+                    find_neighbour_3d(Row+1, Col-1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        8 -> 
+            if Row - 1  /= 0 ->
+                if Col - 1 /= 0 -> 
+                    find_neighbour_3d(Row-1, Col-1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        9 ->
+            Rown = rand:uniform(MaxRow),
+            Coln = rand:uniform(MaxCol),
+            find_neighbour_3d(Rown, Coln, yes, MaxRow, MaxCol)
+    end.
+
+you_know_what_threed(_, _, _, _, _, _, close) ->
+    done;
+you_know_what_threed(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, open)->
+    NumNodes = MaxRow*MaxCol,
+    if length(Exclude) == NumNodes ->
+        you_know_what_threed(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, close);
+    true ->
+        Blockof = lists:nth(Row, TwoDTopology),
+        Heardby = lists:nth(Col, Blockof),
+        Val = lists:member(Heardby, Exclude),
+        if  Val == true ->
+            NewAd = find_neighbour_3d(Row, Col, look, MaxRow, MaxCol),
+            you_know_what_threed(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopology, MaxRow, MaxCol, Exclude, open);
+        true ->
+            Heardby ! {"youknowwhat", self(), connect},
+            NewAd = find_neighbour_3d(Row, Col, look, MaxRow, MaxCol),
+            receive
+                {really, Count} ->
+                    % io:format("Gossip heard by: ~w, ~w no. of times~n",[Heardby, Count]),
+                if Count >= 10 ->
+                    Heardby ! bye,
+                    you_know_what_threed(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopology, MaxRow, MaxCol, [Heardby | Exclude], open);
+                true ->
+                    you_know_what_threed(lists:nth(1, NewAd), lists:nth(2, NewAd), TwoDTopology, MaxRow, MaxCol, Exclude, open)
                 end
             end
         end
