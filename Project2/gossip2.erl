@@ -139,25 +139,6 @@ listen(Count) ->
                 end
             end;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             {Gossip, Sender_id, Neighbour, connectfullnw} ->
             if Count > 10 ->
                 % io:format("MY name is ~w and I heard ~p from ~w ~w times~n",[self(), Gossip, Sender_id, Count]),
@@ -186,17 +167,6 @@ listen(Count) ->
                     _ -> Heardby ! {"youknowwhat", Sender_id, Neighbour, connectfullnw}
                 end
             end;
-
-
-
-
-
-
-
-
-
-
-
 
             {Gossip, Sender_id, Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, Heardby, connect2d} ->
                     if Count > 10 ->
