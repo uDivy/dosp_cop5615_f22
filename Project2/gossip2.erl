@@ -87,7 +87,7 @@ random_selection_of_living_actors_3d(Row, Col, Exclude, Totnum, MaxRow, MaxCol, 
         NewAd = find_neighbour_3d(Row, Col, look, MaxRow, MaxCol),
         Val = lists:member(lists:nth(lists:nth(2, NewAd), lists:nth(lists:nth(1, NewAd), ThreeDTopology)), Exclude),
         if Val == true ->
-            random_selection_of_living_actors_2d(lists:nth(1, NewAd), lists:nth(2, NewAd), Exclude, Totnum, MaxRow, MaxCol, ThreeDTopology);
+            random_selection_of_living_actors_3d(lists:nth(1, NewAd), lists:nth(2, NewAd), Exclude, Totnum, MaxRow, MaxCol, ThreeDTopology);
         true ->
             [lists:nth(1, NewAd),lists:nth(2, NewAd)]
         end
@@ -180,14 +180,14 @@ listen(Count) ->
                     true ->
                         Val = lists:member(self(), Exclude),
                         if Val == true ->
-                            [Row1, Col1] = random_selection_of_living_actors_2d(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, TwoDTopology),
+                            [Row1, Col1] = random_selection_of_living_actors_2d(Row, Col, Exclude, MaxRow*MaxCol, MaxRow, MaxCol, TwoDTopology),
                             if Row1 == 0 ->
                                 Sender_id ! {donedone};
                             true ->
                                 lists:nth(Col1, lists:nth(Row1, TwoDTopology)) ! {Gossip, Sender_id, Row1, Col1, TwoDTopology, MaxRow, MaxCol, Exclude, Heardby, connect2d}
                             end;
                         true ->
-                            [Row1, Col1] = random_selection_of_living_actors_2d(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, TwoDTopology),
+                            [Row1, Col1] = random_selection_of_living_actors_2d(Row, Col, Exclude, MaxRow*MaxCol, MaxRow, MaxCol, TwoDTopology),
                             if Row1 == 0 ->
                                 Sender_id ! {donedone};
                             true ->
@@ -200,7 +200,7 @@ listen(Count) ->
 
                     {Gossip, Sender_id, Row, Col, ThreeDTopology, MaxRow, MaxCol, Exclude, Heardby, connect3d} ->
                     if Count > 10 ->
-                        [Row1, Col1] = random_selection_of_living_actors_2d(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
+                        [Row1, Col1] = random_selection_of_living_actors_3d(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
                         if Row1 == 0 ->
                             Sender_id ! {donedone};
                         true ->
@@ -210,14 +210,14 @@ listen(Count) ->
                     true ->
                         Val = lists:member(self(), Exclude),
                         if Val == true ->
-                            [Row1, Col1] = random_selection_of_living_actors_2d(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
+                            [Row1, Col1] = random_selection_of_living_actors_3d(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
                             if Row1 == 0 ->
                                 Sender_id ! {donedone};
                             true ->
                                 lists:nth(Col1, lists:nth(Row1, ThreeDTopology)) ! {Gossip, Sender_id, Row1, Col1, ThreeDTopology, MaxRow, MaxCol, Exclude, Heardby, connect2d}
                             end;
                         true ->
-                            [Row1, Col1] = random_selection_of_living_actors_2d(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
+                            [Row1, Col1] = random_selection_of_living_actors_3d(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
                             if Row1 == 0 ->
                                 Sender_id ! {donedone};
                             true ->
@@ -457,8 +457,8 @@ you_know_what_threed(_, _, _, _, _, _, close) ->
         {donedone} ->
             done
     end;
-you_know_what_threed(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, open)->
-    Blockof = lists:nth(Row, TwoDTopology),
+you_know_what_threed(Row, Col, ThreeDTopology, MaxRow, MaxCol, Exclude, open)->
+    Blockof = lists:nth(Row, ThreeDTopology),
     Heardby = lists:nth(Col, Blockof),
-    Heardby ! {"youknowwhat", self(), Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, Heardby, connect3d},
-    you_know_what_threed(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, close).
+    Heardby ! {"youknowwhat", self(), Row, Col, ThreeDTopology, MaxRow, MaxCol, Exclude, Heardby, connect3d},
+    you_know_what_threed(Row, Col, ThreeDTopology, MaxRow, MaxCol, Exclude, close).

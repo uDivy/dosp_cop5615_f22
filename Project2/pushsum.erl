@@ -22,6 +22,26 @@ build_topology(Types) ->
             you_know_what_fullnw_pushsum(NumNodes, NumNodes, maps:get("Neighbour",FullNWTopology)),
             End = ErlangSystemTime = erlang:system_time(millisecond),
             io:format("Time Taken by Full Network Topology for ~w Nodes is: ~w milliseconds~n", [NumNodes, End-Start]);
+
+        {twodgrid, NumNodes, pushsum} when NumNodes > 0 -> 
+            Col = erlang:list_to_integer(erlang:float_to_list(math:sqrt(NumNodes),[{decimals,0}])),
+            Row = erlang:list_to_integer(erlang:float_to_list(math:ceil(NumNodes / Col),[{decimals,0}])),
+            TwoDTopology = build_twodgrid_ps(NumNodes, Col, []),
+            % io:format("The 2D Grid Topology is: ~p~n",[TwoDTopology]),
+            Start = ErlangSystemTime = erlang:system_time(millisecond),
+            you_know_what_twod_ps(1, 1, TwoDTopology, Row, Col, [], open),
+            End = ErlangSystemTime = erlang:system_time(millisecond),
+            io:format("Time Taken by 2D Topology for ~w Nodes is: ~w milliseconds~n", [NumNodes, End-Start]);
+
+        {impthreed, NumNodes,pushsum} when NumNodes > 0 -> 
+            Col = erlang:list_to_integer(erlang:float_to_list(math:sqrt(NumNodes),[{decimals,0}])),
+            Row = erlang:list_to_integer(erlang:float_to_list(math:ceil(NumNodes / Col),[{decimals,0}])),
+            ThreeDTopology = build_impthreed_ps(NumNodes, Col, []),
+            % io:format("The Imperfect 3D Grid Topology is: ~p~n",[ThreeDTopology]);
+            Start = ErlangSystemTime = erlang:system_time(millisecond),
+            you_know_what_threed_ps(1, 1, ThreeDTopology, Row, Col, [], open),
+            End = ErlangSystemTime = erlang:system_time(millisecond),
+            io:format("Time Taken by Imperfect 3D Topology for ~w Nodes is: ~w milliseconds~n", [NumNodes, End-Start]);
     
         {_, NumNodes} when NumNodes == 0 ->
             unknown
@@ -43,6 +63,34 @@ random_selection_of_living_actors_ps(Curprocess, Count, Sender_id, [{First,_,_} 
         end
     end.
 
+random_selection_of_living_actors_2d_ps(Row, Col, Exclude, Totnum, MaxRow, MaxCol, TwoDTopology) ->
+    if length(Exclude) == Totnum ->
+        [0, 0];
+    true ->
+        NewAd = find_neighbour_2d(Row, Col, look, MaxRow, MaxCol),
+        {Pid, _, _} = lists:nth(lists:nth(2, NewAd), lists:nth(lists:nth(1, NewAd), TwoDTopology)),
+        Val = lists:member(Pid, Exclude),
+        if Val == true ->
+            random_selection_of_living_actors_2d_ps(lists:nth(1, NewAd), lists:nth(2, NewAd), Exclude, Totnum, MaxRow, MaxCol, TwoDTopology);
+        true ->
+            [lists:nth(1, NewAd),lists:nth(2, NewAd)]
+        end
+    end.
+
+random_selection_of_living_actors_3d_ps(Row, Col, Exclude, Totnum, MaxRow, MaxCol, ThreeDTopology) ->
+    if length(Exclude) == Totnum ->
+        [0, 0];
+    true ->
+        NewAd = find_neighbour_3d(Row, Col, look, MaxRow, MaxCol),
+        {Pid, _, _} = lists:nth(lists:nth(2, NewAd), lists:nth(lists:nth(1, NewAd), ThreeDTopology)),
+        Val = lists:member(Pid, Exclude),
+        if Val == true ->
+            random_selection_of_living_actors_3d_ps(lists:nth(1, NewAd), lists:nth(2, NewAd), Exclude, Totnum, MaxRow, MaxCol, ThreeDTopology);
+        true ->
+            [lists:nth(1, NewAd),lists:nth(2, NewAd)]
+        end
+    end.
+
 get_initials_value(Curprocess, [{First,Si, Wi} | Rest]) ->
     if First == Curprocess ->
         [Si, Wi];
@@ -59,7 +107,7 @@ listen_ps() ->
             [Si, Wi] = get_initials_value(self(), LineTopology),
             Snew = Si + S,
             Wnew = Wi + W,
-            LineTopologyNew = lists:keyreplace(self(), 1, LineTopology, {self(),Snew, Wnew}),
+            LineTopologyNew = lists:keyreplace(self(), 1, LineTopology, {self(),Snew/2, Wnew/2}),
             Ratio = abs((Si/Wi) - (Snew/Wnew)),
             Thresh = math:pow(10,-10),
             if Ratio =< Thresh ->
@@ -111,7 +159,7 @@ listen_ps() ->
                 [Si, Wi] = get_initials_value(self(), Neighbour),
                 Snew = Si + S,
                 Wnew = Wi + W,
-                NeighbourNew = lists:keyreplace(self(), 1, Neighbour, {self(),Snew, Wnew}),
+                NeighbourNew = lists:keyreplace(self(), 1, Neighbour, {self(),Snew/2, Wnew/2}),
                 Ratio = abs((Si/Wi) - (Snew/Wnew)),
                 % io:format("~w ~n",[Ratio]),
                 Thresh = math:pow(10,-10),
@@ -145,7 +193,113 @@ listen_ps() ->
                         end;
                     _ -> Heardby ! {"youknowwhat", Sender_id, NeighbourNew, Snew/2, Wnew/2, Count,  connectfullnw}
                 end
-            end
+            end;
+
+
+
+
+
+
+
+
+            {Gossip, Sender_id, Row, Col, TwoDTopology, TwoDTopologyflat, MaxRow, MaxCol, Exclude, Heardby, S, W, Count, connect2d} ->
+                [Si, Wi] = get_initials_value(self(), TwoDTopologyflat),
+                Snew = Si + S,
+                Wnew = Wi + W,
+                TwoDTopologyflatNew = lists:keyreplace(self(), 1, TwoDTopologyflat, {self(),Snew/2, Wnew/2}),
+                Ratio = abs((Si/Wi) - (Snew/Wnew)),
+                % io:format("~w ~n",[Ratio]),
+                Thresh = math:pow(10,-10),
+                if Ratio =< Thresh ->  
+                    [Row1, Col1] = random_selection_of_living_actors_2d_ps(Row, Col, Exclude, MaxRow*MaxCol, MaxRow, MaxCol, TwoDTopology),
+                    if Row1 == 0 ->
+                        Sender_id ! {donedone};
+                    true ->
+                        if Count == 3
+                             ->
+                                [Row2, Col2] = random_selection_of_living_actors_2d_ps(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, TwoDTopology),
+                                if Row2 == 0 ->
+                                    Sender_id ! {donedone};
+                                true -> 
+                                    {Sendit,_,_} = lists:nth(Col2, lists:nth(Row2, TwoDTopology)),
+                                    Sendit ! {Gossip, Sender_id, Row2, Col2, TwoDTopology, TwoDTopologyflatNew, MaxRow, MaxCol, [self() | Exclude], Heardby, Snew/2, Wnew/2, 0, connect2d},    
+                                    exit(self())
+                                end;
+                        true ->
+                                {Sendit,_,_} = lists:nth(Col1, lists:nth(Row1, TwoDTopology)),
+                                Sendit ! {Gossip, Sender_id, Row1, Col1, TwoDTopology, TwoDTopologyflatNew, MaxRow, MaxCol, Exclude, Heardby, Snew/2, Wnew/2, Count + 1, connect2d}
+                        end
+                   end;
+                true ->
+                    Val = lists:member(self(), Exclude),
+                    if Val == true ->
+                        [Row1, Col1] = random_selection_of_living_actors_2d_ps(Row, Col, Exclude, MaxRow*MaxCol, MaxRow, MaxCol, TwoDTopology),
+                        if Row1 == 0 ->
+                            Sender_id ! {donedone};
+                        true ->
+                            {Sendit,_,_} = lists:nth(Col1, lists:nth(Row1, TwoDTopology)),
+                            Sendit ! {Gossip, Sender_id, Row1, Col1, TwoDTopology, TwoDTopologyflatNew, MaxRow, MaxCol, Exclude, Heardby, Snew/2, Wnew/2, Count, connect2d}
+                        end;
+                    true ->
+                        [Row1, Col1] = random_selection_of_living_actors_2d_ps(Row, Col, Exclude, MaxRow*MaxCol, MaxRow, MaxCol, TwoDTopology),
+                        if Row1 == 0 ->
+                            Sender_id ! {donedone};
+                        true ->
+                            {Sendit,_,_} = lists:nth(Col1, lists:nth(Row1, TwoDTopology)),
+                            Sendit ! {Gossip, Sender_id, Row1, Col1, TwoDTopology, TwoDTopologyflatNew, MaxRow, MaxCol, Exclude, Heardby, Snew/2, Wnew/2, Count, connect2d}
+                        end
+                    end
+                end;
+
+
+                {Gossip, Sender_id, Row, Col, ThreeDTopology, ThreeDTopologyflat,  MaxRow, MaxCol, Exclude, Heardby, S, W, Count, connect3d} ->
+                    [Si, Wi] = get_initials_value(self(), ThreeDTopologyflat),
+                    Snew = Si + S,
+                    Wnew = Wi + W,
+                    ThreeDTopologyflatNew = lists:keyreplace(self(), 1, ThreeDTopologyflat, {self(),Snew/2, Wnew/2}),
+                    Ratio = abs((Si/Wi) - (Snew/Wnew)),
+                    % io:format("~w ~n",[Ratio]),
+                    Thresh = math:pow(10,-10),
+                    if Ratio =< Thresh ->
+                        [Row1, Col1] = random_selection_of_living_actors_3d_ps(Row, Col, Exclude, MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
+                    if Row1 == 0 ->
+                        Sender_id ! {donedone};
+                    true ->
+                        if Count == 3
+                             ->
+                                [Row2, Col2] = random_selection_of_living_actors_3d_ps(Row, Col, [self() | Exclude], MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
+                                if Row2 == 0 ->
+                                    Sender_id ! {donedone};
+                                true -> 
+                                    {Sendit,_,_} = lists:nth(Col2, lists:nth(Row2, ThreeDTopology)),
+                                    Sendit ! {Gossip, Sender_id, Row2, Col2, ThreeDTopology, ThreeDTopologyflatNew, MaxRow, MaxCol, [self() | Exclude], Heardby, Snew/2, Wnew/2, 0, connect3d},    
+                                    exit(self())
+                                end;
+                        true ->
+                                {Sendit,_,_} = lists:nth(Col1, lists:nth(Row1, ThreeDTopology)),
+                                Sendit ! {Gossip, Sender_id, Row1, Col1, ThreeDTopology, ThreeDTopologyflatNew, MaxRow, MaxCol, Exclude, Heardby, Snew/2, Wnew/2, Count + 1, connect3d}
+                        end
+                   end;
+                true ->
+                    Val = lists:member(self(), Exclude),
+                    if Val == true ->
+                        [Row1, Col1] = random_selection_of_living_actors_3d_ps(Row, Col, Exclude, MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
+                        if Row1 == 0 ->
+                            Sender_id ! {donedone};
+                        true ->
+                            {Sendit,_,_} = lists:nth(Col1, lists:nth(Row1, ThreeDTopology)),
+                            Sendit ! {Gossip, Sender_id, Row1, Col1, ThreeDTopology, ThreeDTopologyflatNew, MaxRow, MaxCol, Exclude, Heardby, Snew/2, Wnew/2, Count, connect3d}
+                        end;
+                    true ->
+                        [Row1, Col1] = random_selection_of_living_actors_3d_ps(Row, Col, Exclude, MaxRow*MaxCol, MaxRow, MaxCol, ThreeDTopology),
+                        if Row1 == 0 ->
+                            Sender_id ! {donedone};
+                        true ->
+                            {Sendit,_,_} = lists:nth(Col1, lists:nth(Row1, ThreeDTopology)),
+                            Sendit ! {Gossip, Sender_id, Row1, Col1, ThreeDTopology, ThreeDTopologyflatNew, MaxRow, MaxCol, Exclude, Heardby, Snew/2, Wnew/2, Count, connect3d}
+                        end
+                    end
+                end
     end,
     listen_ps().
 
@@ -167,6 +321,20 @@ build_fullnw_ps(0, Rest) ->
 build_fullnw_ps(NumNodes, _) ->
     Record = build_line_pushsum(NumNodes, [], 1),
     build_fullnw_ps(0, Record).
+
+build_twodgrid_ps(NumNodes, Col, TwoDTopology) when NumNodes < Col->
+    Record = build_line_pushsum(Col, [], 1),
+    [Record | TwoDTopology];
+build_twodgrid_ps(NumNodes, Col, Rest) when NumNodes >= Col ->
+    Record = build_line_pushsum(Col, [], 1),
+    build_twodgrid_ps(NumNodes-Col, Col, [Record | Rest]).
+
+build_impthreed_ps(NumNodes, Col, ThreeDTopology) when NumNodes =< Col->
+    Record = build_line_pushsum(Col, [], 1),
+    [Record | ThreeDTopology];
+build_impthreed_ps(NumNodes, Col, Rest) when NumNodes >= Col ->
+    Record = build_line_pushsum(Col, [], 1),
+    build_impthreed_ps(NumNodes-Col, Col, [Record | Rest]).
 
 %% Line Topology
 find_my_neighbour_1d(0, 0, _, Neighbour) ->
@@ -197,3 +365,172 @@ you_know_what_fullnw_pushsum(NumNodes, Pos, FullNWTopology) when Pos == NumNodes
     {Heardby,_,_} = lists:nth(Pos, FullNWTopology),
     Heardby ! {"youknowwhat", self(), FullNWTopology, NumNodes, 1, 0,connectfullnw},
     you_know_what_fullnw_pushsum(NumNodes, 0, FullNWTopology).
+
+%% 2D Grid
+find_neighbour_2d(Rownew, Colnew, yes, _, _) ->
+    [Rownew, Colnew];
+find_neighbour_2d(Row, Col, look, MaxRow, MaxCol) ->
+    Arrow = rand:uniform(8),
+    case Arrow of 
+        1 ->
+            if Row - 1  == 0 ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_2d(Row-1, Col, yes, MaxRow, MaxCol)
+            end;
+        2 -> 
+            if Row + 1  > MaxRow ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_2d(Row+1, Col, yes, MaxRow, MaxCol)
+            end;
+        3 -> 
+            if Col + 1  > MaxCol ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_2d(Row, Col+1, yes, MaxRow, MaxCol)
+            end;
+        4 -> 
+            if Col - 1  == 0 ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol);
+            true ->
+                find_neighbour_2d(Row, Col-1, yes, MaxRow, MaxCol)
+            end;
+        5 ->
+            if Row - 1  /= 0 ->
+                if Col + 1 < MaxCol -> 
+                    find_neighbour_2d(Row-1, Col+1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        6 -> 
+            if Row + 1  < MaxRow ->
+                if Col + 1 < MaxCol -> 
+                    find_neighbour_2d(Row+1, Col+1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        7 -> 
+            if Row + 1  < MaxRow ->
+                if Col - 1 /= 0 -> 
+                    find_neighbour_2d(Row+1, Col-1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+            end;
+        8 -> 
+            if Row - 1  /= 0 ->
+                if Col - 1 /= 0 -> 
+                    find_neighbour_2d(Row-1, Col-1, yes, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            true ->
+                find_neighbour_2d(Row, Col, look, MaxRow, MaxCol)
+            end
+    end.
+
+    find_neighbour_3d(Rownew, Colnew, yes, _, _) ->
+        [Rownew, Colnew];
+    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol) ->
+        Arrow = rand:uniform(9),
+        case Arrow of 
+            1 ->
+                if Row - 1  == 0 ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_3d(Row-1, Col, yes, MaxRow, MaxCol)
+                end;
+            2 -> 
+                if Row + 1  > MaxRow ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_3d(Row+1, Col, yes, MaxRow, MaxCol)
+                end;
+            3 -> 
+                if Col + 1  > MaxCol ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_3d(Row, Col+1, yes, MaxRow, MaxCol)
+                end;
+            4 -> 
+                if Col - 1  == 0 ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol);
+                true ->
+                    find_neighbour_3d(Row, Col-1, yes, MaxRow, MaxCol)
+                end;
+            5 ->
+                if Row - 1  /= 0 ->
+                    if Col + 1 < MaxCol -> 
+                        find_neighbour_3d(Row-1, Col+1, yes, MaxRow, MaxCol);
+                    true ->
+                        find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                    end;
+                true ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            6 -> 
+                if Row + 1  < MaxRow ->
+                    if Col + 1 < MaxCol -> 
+                        find_neighbour_3d(Row+1, Col+1, yes, MaxRow, MaxCol);
+                    true ->
+                        find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                    end;
+                true ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            7 -> 
+                if Row + 1  < MaxRow ->
+                    if Col - 1 /= 0 -> 
+                        find_neighbour_3d(Row+1, Col-1, yes, MaxRow, MaxCol);
+                    true ->
+                        find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                    end;
+                true ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            8 -> 
+                if Row - 1  /= 0 ->
+                    if Col - 1 /= 0 -> 
+                        find_neighbour_3d(Row-1, Col-1, yes, MaxRow, MaxCol);
+                    true ->
+                        find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                    end;
+                true ->
+                    find_neighbour_3d(Row, Col, look, MaxRow, MaxCol)
+                end;
+            9 ->
+                Rown = rand:uniform(MaxRow),
+                Coln = rand:uniform(MaxCol),
+                find_neighbour_3d(Rown, Coln, yes, MaxRow, MaxCol)
+        end.
+
+you_know_what_twod_ps(_, _, _, _, _, _, close) ->
+    receive
+        {donedone} ->
+            done
+    end;
+you_know_what_twod_ps(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, open)->
+    Blockof = lists:nth(Row, TwoDTopology),
+    {Heardby,_,_} = lists:nth(Col, Blockof),
+    Heardby ! {"youknowwhat", self(), Row, Col, TwoDTopology, lists:flatten(TwoDTopology), MaxRow, MaxCol, Exclude, Heardby, 1, 1, 0, connect2d},
+    you_know_what_twod_ps(Row, Col, TwoDTopology, MaxRow, MaxCol, Exclude, close).
+
+you_know_what_threed_ps(_, _, _, _, _, _, close) ->
+    receive
+        {donedone} ->
+            done
+    end;
+you_know_what_threed_ps(Row, Col, ThreeDTopology, MaxRow, MaxCol, Exclude, open)->
+    Blockof = lists:nth(Row, ThreeDTopology),
+    {Heardby,_,_} = lists:nth(Col, Blockof),
+    Heardby ! {"youknowwhat", self(), Row, Col, ThreeDTopology, lists:flatten(ThreeDTopology), MaxRow, MaxCol, Exclude, Heardby, 1, 1, 0, connect3d},
+    you_know_what_threed_ps(Row, Col, ThreeDTopology, MaxRow, MaxCol, Exclude, close).
