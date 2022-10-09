@@ -50,7 +50,7 @@ build_topology(Types) ->
 
         {line, NumNodes, pushsum} when NumNodes > 0 ->
             LineTopology = build_line_pushsum(NumNodes, [],1),
-            io:format("The Line Topology is: ~p~n",[LineTopology]),
+            % io:format("The Line Topology is: ~p~n",[LineTopology]),
             Neighbour = find_my_neighbour_1d(NumNodes, NumNodes, LineTopology, []),
             Start = ErlangSystemTime = erlang:system_time(millisecond),
             you_know_what_line_pushsum(NumNodes, NumNodes, LineTopology, Neighbour),
@@ -412,10 +412,21 @@ listen_ps() ->
             if Ratio =< Thresh ->
                 if Count == 3 ->
                     [V, H] = random_selection_of_living_actors_ps(self(), 1, Sender_id, LineTopologyNew, length(LineTopology)),
-                    H ! {Gossip, Sender_id, Neighbour, V, LineTopology, Snew/2, Wnew/2, Count, connectline},    
-                    exit(self());
+                    if V == length(LineTopology) ->
+                            Sender_id ! {donedone},
+                            exit(self());
+                    true ->
+                            H ! {Gossip, Sender_id, Neighbour, V, LineTopologyNew, Snew/2, Wnew/2, 0, connectline},    
+                            exit(self())
+                    end;
                 true ->
-                    self() ! {Gossip, Sender_id, Neighbour, Pos, LineTopology, Snew/2, Wnew/2, Count + 1, connectline}
+                    [V, H] = random_selection_of_living_actors_ps(self(), 1, Sender_id, LineTopologyNew, length(LineTopology)),
+                    if V == length(LineTopology) ->
+                            Sender_id ! {donedone},
+                            exit(self());
+                    true ->
+                            H ! {Gossip, Sender_id, Neighbour, V, LineTopologyNew, Snew/2, Wnew/2, Count + 1, connectline}
+                    end
                 end;
             true ->
                 Blockof = lists:nth(Pos, Neighbour),
@@ -437,10 +448,10 @@ listen_ps() ->
                             Sender_id ! {donedone},
                             exit(self());
                         true ->
-                            Heardbyme ! {Gossip, Sender_id, Neighbour, Val, LineTopology, Snew/2, Wnew/2, Count, connectline}
+                            Heardbyme ! {Gossip, Sender_id, Neighbour, Val, LineTopologyNew, Snew/2, Wnew/2, Count, connectline}
                         end;
                     _ ->      
-                        Heardby ! {Gossip, Sender_id, Neighbour, Posnew, LineTopology, Snew/2, Wnew/2, Count, connectline}
+                        Heardby ! {Gossip, Sender_id, Neighbour, Posnew, LineTopologyNew, Snew/2, Wnew/2, Count, connectline}
                 end
             end;
 
