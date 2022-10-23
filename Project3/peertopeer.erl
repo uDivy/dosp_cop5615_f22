@@ -116,7 +116,6 @@ call_fingertable(NumNodes, NumRequests, Keys) ->
 calculating_avg_hopcount(NumNodes, NumRequests, Hoplist) ->
     K = my_rand_key(Hoplist, 1),
     Successornode = index_dest(K, Hoplist, 1),
-    io:format("Wait_____ ~n"),
     find_nearby(K, 1, 1, Hoplist, NumNodes, NumRequests).
 
 my_rand_key(Keys, Id) ->
